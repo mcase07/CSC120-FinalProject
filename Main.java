@@ -10,9 +10,11 @@ public class Main {
         System.out.println("The Cafe is to the west.");
         System.out.println("\nEnter a direction to move and start exploring!");
 
-        Player Player1 = new Player("Jo");
-        // Player1.move();
+        Player Player1 = new Player("Me");
+        Player1.move("EAST");
+        System.out.println(Player1.move("EAST"));
         //call move when they choose 
+
     }
     
 }

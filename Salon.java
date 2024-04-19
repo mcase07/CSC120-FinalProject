@@ -1,4 +1,13 @@
+import java.util.ArrayList;
+
 public class Salon {
+
+    ArrayList<String> menu  = new ArrayList<String>();
+
+    public Salon(){
+
+        this.menu = menu;
+    }
 
     void order(){
 
@@ -8,14 +17,19 @@ public class Salon {
 
     };
 
-    void exit(){
+    //might not need enter() and exit() because of the move() method in Player
+    // void exit(){
 
-    };
-    void enter(){
+    // };
+    // void enter(){
 
-    };
+    // };
 
     void chooseStyle(){
+
+        
+
+        //from an ArrayList of styles 
 
     };
 

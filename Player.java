@@ -3,6 +3,11 @@ public class Player {
     String name;
     String position;
 
+    static Boolean hairWashed = false;
+    static Boolean hairCut = false;
+    static Boolean hairDry = true;
+
+
     public Player(String name){
 
         this.name = name;
@@ -15,17 +20,17 @@ public class Player {
     String move(String direction){
 
         if (direction == "NORTH"){
-            this.position = "the Hair Salon";
-            return "You are at " + position;
+            this.position = "Hair Salon";
+            return "You are at the " + this.position + ".";
         } else if (direction == "SOUTH"){
-            this.position = "the Nail Salon";
-            return "You are at " + position;
+            this.position = "Nail Salon";
+            return "You are at the " + this.position + ".";
         }else if (direction == "EAST"){
-            this.position = "the Book Store";
-            return "You are at " + position;
+            this.position = "Book Store";
+            return "You are at the " + this.position + ".";
         }else if (direction == "WEST"){
-            this.position = "the Cafe";
-            return "You are at " + position;
+            this.position = "Cafe";
+            return "You are at the " + this.position + ".";
         }else{
             return "That's not a valid direction, choose again!";
         }
@@ -36,5 +41,6 @@ public class Player {
 
         // will do userResponse = userInput.nextLine.toUpperCase();
         System.out.println(Player1.move("EAST"));
+        System.out.println(Player1.position);
     }
 }
