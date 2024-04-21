@@ -11,7 +11,8 @@ public class HairSalon extends Salon implements HairSalonContract {
         menu.add("Cut");
         //i feel like a player would be confused about the differences between these two:
         menu.add("Dry");
-        menu.add("Blow dry");
+        menu.add("Blow dry"); //change to style 
+        //add style hair 
 
     }
 
@@ -31,7 +32,7 @@ public class HairSalon extends Salon implements HairSalonContract {
         }
     }
 
-    public void blowDryHair(Player player){
+    public void blowDryHair(Player player){//keep this the same but change to style
         if(Player.hairDry = true){
             System.out.println("Your hair is already dry! Try a different service.");
         }else{
