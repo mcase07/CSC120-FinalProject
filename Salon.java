@@ -27,8 +27,6 @@ public class Salon {
 
     void chooseStyle(){
 
-        
-
         //from an ArrayList of styles 
 
     };

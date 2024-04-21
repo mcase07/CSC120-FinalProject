@@ -7,11 +7,11 @@ public class HairSalon extends Salon implements HairSalonContract {
 
     public HairSalon(){
 
-        menu.add("Wash");
-        menu.add("Cut");
+        this.menu.add("Wash");
+        this.menu.add("Cut");
         //i feel like a player would be confused about the differences between these two:
-        menu.add("Dry");
-        menu.add("Blow dry"); //change to style 
+        this.menu.add("Dry");
+        this.menu.add("Blow dry"); //change to style 
         //add style hair 
 
     }
