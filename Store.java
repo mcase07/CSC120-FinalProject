@@ -1,6 +1,6 @@
 public class Store {
 
-    void orderAndPay(){
+    void buy(){
 
     };
 
