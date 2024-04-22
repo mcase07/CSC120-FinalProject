@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Scanner;
 
 public class Cafe extends Store {
     ArrayList<String> menu = new ArrayList<String>();
@@ -21,6 +22,16 @@ public Cafe(int coffee, int sugar, int cream, int cups){
     System.out.println( "Hi Welcome to the Cafe! Here is our menu: " + this.menu);
 }
 
+public void order(String item){
+    System.out.println("Here is our menu :" + menu + ".\n");
+    Scanner sc = new Scanner(System.in);
+    System.out.println("What would you like to order?");
+    String order = sc.nextLine();
+    System.out.println("You have ordered a " + order + ", coming right up!\n");
+
+    sc.close();
+
+}
 
 public void sellCoffee(int size, int nSugarPackets, int nCreams, int nCups){
     if(size > this.nCoffeeOunces||nSugarPackets> this.nSugarPackets|| nCreams> this.nCreams|| nCups> nCups){
@@ -34,4 +45,6 @@ public void sellCoffee(int size, int nSugarPackets, int nCreams, int nCups){
 
   private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups){
 }
+
+
 }
