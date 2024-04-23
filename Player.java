@@ -3,15 +3,23 @@ public class Player {
     String name;
     String position;
 
-    static Boolean hairWashed = false;
-    static Boolean hairCut = false;
-    static Boolean hairDry = true;
+    public Boolean hairWashed;
+    public Boolean hairCut;
+    public Boolean hairDry;
+    public Boolean nailsPainted;
+    public Boolean toesPainted;
 
 
     public Player(String name){
 
         this.name = name;
         this.position = "Home";
+        this.hairWashed = false;
+        this.hairCut = false;
+        this.nailsPainted = false;
+        this.toesPainted = false;
+
+
 
         System.out.println("Hello, " + this.name + "! Currently, you are at " + position + ".");
 

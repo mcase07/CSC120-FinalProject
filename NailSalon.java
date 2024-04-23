@@ -43,38 +43,63 @@ public class NailSalon extends Salon { //needs implements NailSalonContract
         System.out.println(menu);//i want this to output not in a list format
     }
 
-    public void manicure(){//String color, String length, String shape
+    public void manicure(Player player){
 
-        Scanner sc = new Scanner(System.in);
+        if (player.nailsPainted = false){
 
-        System.out.println("\nChoose a color from our options. We have: " + colors);
+            Scanner sc = new Scanner(System.in);
 
-        String color = sc.nextLine();
-        System.out.println("OMG, " + color + " is my favorite color!\n");
+            System.out.println("\nChoose a color from our options. We have: " + colors);
 
-        System.out.println("Choose a length from our options. We have: " + lengths);
-        String length = sc.nextLine();
-        System.out.println("\nAh, " + length + " is a great choice!\n");
+            String color = sc.nextLine();
+            System.out.println("OMG, " + color + " is my favorite color!\n");
 
-        System.out.println("Now, what shape would you like? You can choose from: " + shapes);
-        String shape = sc.nextLine();
-        System.out.println("\nOh I love " + shape + " on you!\n");
+            System.out.println("Choose a length from our options. We have: " + lengths);
+            String length = sc.nextLine();
+            System.out.println("\nAh, " + length + " is a great choice!\n");
 
-        sc.close();
+            System.out.println("Now, what shape would you like? You can choose from: " + shapes);
+            String shape = sc.nextLine();
+            System.out.println("\nOh I love " + shape + " on you!\n");
 
-        System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!");
+            sc.close();
 
+            System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!");
+            player.nailsPainted = true;
+            
+        }else if(player.nailsPainted = true){//change to exception later(?) except that's not how games work 
+            System.out.println("Looks like you already have a manicure. Try one of our other services!");
+        } 
+    }
+
+    public void pedicure(Player player){
+
+        if (player.toesPainted = false){
+
+            Scanner scan = new Scanner(System.in);
+
+            System.out.println("\nChoose a color from our options. We have: " + colors);
+
+            String color = scan.nextLine();
+            System.out.println("OMG, " + color + " is my favorite color!\n");
+
+            scan.close();
+
+            System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!");
+        }else{
+            System.out.println("Looks like you already have a pedicure. Try one of our other services!");
+        }
+        
+        
     }
 
 
     public static void main(String[] args) {
 
+        Player pria = new Player("Pria");
         NailSalon nails = new NailSalon();
-        // System.out.println(nails.colors);
-        // System.out.println(nails.lengths);
-        // System.out.println(nails.shapes);
-        nails.manicure();
-
-
+        System.out.println(pria.nailsPainted);//okay so for some reason it's telling me i have my nails painted when it knows i don't 
+        nails.manicure(pria);
+        
     }
 }
