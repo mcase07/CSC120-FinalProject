@@ -17,32 +17,32 @@ public class HairSalon extends Salon implements HairSalonContract {
     }
 
     public void washHair(Player player){
-        if(Player.hairWashed = true){
+        if(player.hairWashed = true){
             System.out.println("Your hair is already washed! Try something a different service.");
         }else{
-            Player.hairWashed = true;
+            player.hairWashed = true;
         }
     }
 
     public void dryHair(Player player){
-        if(Player.hairDry = true){
+        if(player.hairDry = true){
             System.out.println("Your hair is already dry! Try a different service.");
         }else{
-            Player.hairDry = true;
+            player.hairDry = true;
         }
     }
 
     public void blowDryHair(Player player){//keep this the same but change to style
-        if(Player.hairDry = true){
+        if(player.hairDry = true){
             System.out.println("Your hair is already dry! Try a different service.");
         }else{
-            Player.hairDry = true;
+            player.hairDry = true;
         }
     }
 
     public void cutHair(Player player){
         //can only run e.g. 3 times before souting "oops, you cut off all your hair! can't cut anymore!"
-        Player.hairCut = true;
+        player.hairCut = true;
     }
 
     public static void main(String[] args) {

@@ -1,8 +1,7 @@
 public interface NailSalonContract {
 
-    void chooseColor();
-    void chooseLength();
-    void chooseStyle();
-    void chooseManiPedi();
-    
+    void manicure(Player player);
+    void pedicure(Player player);
+    void both(Player player);
+        
 }

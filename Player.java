@@ -9,7 +9,6 @@ public class Player {
     public Boolean nailsPainted;
     public Boolean toesPainted;
 
-
     public Player(String name){
 
         this.name = name;
@@ -19,12 +18,10 @@ public class Player {
         this.nailsPainted = false;
         this.toesPainted = false;
 
-
-
         System.out.println("Hello, " + this.name + "! Currently, you are at " + position + ".");
 
     }
-    
+
     String move(String direction){
 
         if (direction == "NORTH"){
