@@ -4,21 +4,24 @@ public class Player {
     String position;
 
     public Boolean hairWashed;
-    public Boolean hairCut;
+    public int nHairCuts;
     public Boolean hairDry;
-    public Boolean nailsPainted;
-    public Boolean toesPainted;
+    public Boolean hairStyled;
+    public Boolean nailsDone;
+    public Boolean toesDone;
 
     public Player(String name){
 
         this.name = name;
         this.position = "Home";
         this.hairWashed = false;
-        this.hairCut = false;
-        this.nailsPainted = false;
-        this.toesPainted = false;
+        this.nHairCuts = 0;
+        this.hairDry = true;
+        this.hairStyled = false;
+        this.nailsDone = false;
+        this.toesDone = false;
 
-        System.out.println("Hello, " + this.name + "! Currently, you are at " + position + ".");
+        // System.out.println("Hello, " + this.name + "! Currently, you are at " + position + ".");
 
     }
 

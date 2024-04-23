@@ -41,9 +41,11 @@ public class NailSalon extends Salon implements NailSalonContract{
         System.out.println(menu + "\n");//i want this to output not in a list format
     }
 
+    // choose color, legth, and style and change player's attribute
+    // check first if nails are already done
     public void manicure(Player player){
 
-        if (player.nailsPainted == false){
+        if (player.nailsDone == false){
 
             Scanner sc = new Scanner(System.in);
 
@@ -63,17 +65,19 @@ public class NailSalon extends Salon implements NailSalonContract{
             sc.close();
 
             System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
-            player.nailsPainted = true;
+            player.nailsDone = true;
             
-        }else if(player.nailsPainted == true){ //change to exception later(?) except that's not how games work 
+        }else if(player.nailsDone == true){ //change to exception later(?) except that's not how games work 
 
             System.out.println("Looks like you already have a manicure. Try one of our other services or a different shop!\n");
         } 
     }
 
+    // choose color and change player's attribute
+    // check first if toes are already done
     public void pedicure(Player player){
 
-        if (player.toesPainted == false){
+        if (player.toesDone == false){
 
             Scanner scan = new Scanner(System.in);
 
@@ -85,7 +89,7 @@ public class NailSalon extends Salon implements NailSalonContract{
             scan.close();
 
             System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!\n");
-            player.toesPainted = true;
+            player.toesDone = true;
 
         }else{
 
@@ -93,9 +97,11 @@ public class NailSalon extends Salon implements NailSalonContract{
         }   
     }
 
+    // run both mani and pedi and change player's attribute
+    // check first the status of nails/toes being done
     public void both(Player player){
 
-        if (player.nailsPainted == false && player.toesPainted == false){
+        if (player.nailsDone == false && player.toesDone == false){
 
             Scanner sc = new Scanner(System.in);
 
@@ -125,18 +131,18 @@ public class NailSalon extends Salon implements NailSalonContract{
 
             sc.close();
 
-            player.nailsPainted = true;
-            player.toesPainted = true;
+            player.nailsDone = true;
+            player.toesDone = true;
 
-        }else if(player.nailsPainted == false && player.toesPainted == true){
+        }else if(player.nailsDone == false && player.toesDone == true){
 
             System.out.println("Looks like you already have your toes painted. How about trying a manicure?");
 
-        }else if(player.nailsPainted == true && player.toesPainted == false){
+        }else if(player.nailsDone == true && player.toesDone == false){
 
             System.out.println("Looks like you already have your nails painted. How about trying a pedicure?");
 
-        }else if(player.nailsPainted == true && player.toesPainted == true){
+        }else if(player.nailsDone == true && player.toesDone == true){
 
             System.out.println("Looks like you already have your nails and toes painted. How about trying a different shop?");
         }
@@ -146,7 +152,7 @@ public class NailSalon extends Salon implements NailSalonContract{
 
         Player mack = new Player("Mack");
         NailSalon nails = new NailSalon();
-        System.out.println(mack.nailsPainted);//okay so for some reason it's telling me i have my nails painted when it knows i don't 
+        System.out.println(mack.nailsDone);//okay so for some reason it's telling me i have my nails painted when it knows i don't 
         // nails.manicure(mack);
         // nails.pedicure(mack);
         nails.both(mack);

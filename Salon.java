@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Salon {
+public class Salon { //this whole situation is useless atm
 
     ArrayList<String> menu  = new ArrayList<String>();
 
