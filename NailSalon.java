@@ -50,6 +50,8 @@ public class NailSalon extends Salon implements NailSalonContract{
 
             Scanner sc = new Scanner(System.in);
 
+            //if statement check if the color user input was correct, if not runtime exception redirecting them to choose color
+
             System.out.println("\nChoose a color from our options. We have: " + colors);
 
             String color = sc.nextLine(); //will need to convert scanner to an if/else so that it won't take jsut anything in 

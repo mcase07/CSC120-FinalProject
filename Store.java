@@ -1,4 +1,8 @@
+import java.util.Hashtable;
+
 public class Store {
+    private Hashtable<Integer, Boolean> seats; 
+
 
     void buy(){
 
@@ -12,7 +16,7 @@ public class Store {
     };
 
     void sitDown(){
-
+        if seats 
     };
 
 }
