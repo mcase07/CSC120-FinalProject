@@ -12,6 +12,7 @@ public class NailSalon extends Salon implements NailSalonContract{
     public NailSalon(){
         
         //surely there has to be a better way to do this
+        // read files in 
         colors.add("Red");
         colors.add("Orange");
         colors.add("Yellow");
@@ -99,9 +100,12 @@ public class NailSalon extends Salon implements NailSalonContract{
 
     // run both mani and pedi and change player's attribute
     // check first the status of nails/toes being done
-    public void both(Player player){
+    public void both(Player player){ // call manicure() or pedicure() instead of having the full code out 
 
         if (player.nailsDone == false && player.toesDone == false){
+
+            // manicure (player);
+            // pedicure(player); //this actually might not work bc of the scanners
 
             Scanner sc = new Scanner(System.in);
 
@@ -152,7 +156,7 @@ public class NailSalon extends Salon implements NailSalonContract{
 
         Player mack = new Player("Mack");
         NailSalon nails = new NailSalon();
-        System.out.println(mack.nailsDone);//okay so for some reason it's telling me i have my nails painted when it knows i don't 
+        System.out.println(mack.nailsDone);
         // nails.manicure(mack);
         // nails.pedicure(mack);
         nails.both(mack);
