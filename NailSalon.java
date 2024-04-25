@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class NailSalon extends Salon implements NailSalonContract{
+public class NailSalon extends Salon {
     
     ArrayList<String> colors = new ArrayList<String>();
     ArrayList<String> lengths =  new ArrayList<String>();
@@ -46,7 +46,7 @@ public class NailSalon extends Salon implements NailSalonContract{
     // check first if nails are already done
     public void manicure(Player player){
 
-        if (player.nailsDone == false){
+        if (player.nailsDone == false){ //take out the scanner
 
             Scanner sc = new Scanner(System.in);
 

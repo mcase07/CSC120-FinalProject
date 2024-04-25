@@ -1,6 +1,6 @@
 // import java.util.ArrayList;
 
-public class HairSalon extends Salon implements HairSalonContract {
+public class HairSalon extends Salon {
 
     public HairSalon(){
 
