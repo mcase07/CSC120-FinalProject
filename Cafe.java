@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-public class Cafe extends Store {
+public class Cafe {
     ArrayList<String> menu = new ArrayList<String>();
     private Hashtable<String, Boolean> seats; 
     private int nCoffeeOunces; // The number of ounces of coffee remaining in inventory

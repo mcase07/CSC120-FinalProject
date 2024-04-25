@@ -1,6 +1,8 @@
-// import java.util.ArrayList;
+import java.util.ArrayList;
 
-public class HairSalon extends Salon {
+public class HairSalon {
+
+    ArrayList<String> menu = new ArrayList<String>();
 
     public HairSalon(){
 

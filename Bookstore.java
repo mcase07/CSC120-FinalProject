@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-public class Bookstore extends Store{
+public class Bookstore {
     ArrayList<String> menu = new ArrayList<String>();
     private Hashtable<String, Boolean> books; 
 

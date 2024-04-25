@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
-public class NailSalon extends Salon {
+public class NailSalon {
     
     ArrayList<String> colors = new ArrayList<String>();
     ArrayList<String> lengths =  new ArrayList<String>();
@@ -44,28 +43,20 @@ public class NailSalon extends Salon {
 
     // choose color, legth, and style and change player's attribute
     // check first if nails are already done
-    public void manicure(Player player){
+    public void manicure(Player player, String color, String length, String shape){
 
-        if (player.nailsDone == false){ //take out the scanner
-
-            Scanner sc = new Scanner(System.in);
+        if (player.nailsDone == false){ //put this if else in the main? like when the player enters the salon 
 
             //if statement check if the color user input was correct, if not runtime exception redirecting them to choose color
 
             System.out.println("\nChoose a color from our options. We have: " + colors);
-
-            String color = sc.nextLine(); //will need to convert scanner to an if/else so that it won't take jsut anything in 
             System.out.println("OMG, " + color + " is my favorite color!\n");
 
             System.out.println("Choose a length from our options. We have: " + lengths);
-            String length = sc.nextLine();
             System.out.println("\nAh, " + length + " is a great choice!\n");
 
             System.out.println("Now, what shape would you like? You can choose from: " + shapes);
-            String shape = sc.nextLine();
             System.out.println("\nOh I love " + shape + " on you!\n");
-
-            sc.close();
 
             System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
             player.nailsDone = true;
@@ -78,18 +69,13 @@ public class NailSalon extends Salon {
 
     // choose color and change player's attribute
     // check first if toes are already done
-    public void pedicure(Player player){
+    public void pedicure(Player player, String color){
 
         if (player.toesDone == false){
 
-            Scanner scan = new Scanner(System.in);
-
             System.out.println("\nChoose a color from our options. We have: " + colors);
 
-            String color = scan.nextLine();
             System.out.println("Ooh, I love " + color + "!\n");
-
-            scan.close();
 
             System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!\n");
             player.toesDone = true;
@@ -102,40 +88,12 @@ public class NailSalon extends Salon {
 
     // run both mani and pedi and change player's attribute
     // check first the status of nails/toes being done
-    public void both(Player player){ // call manicure() or pedicure() instead of having the full code out 
+    public void both(Player player, String color, String length, String shape){ // call manicure() or pedicure() instead of having the full code out 
 
         if (player.nailsDone == false && player.toesDone == false){
 
-            // manicure (player);
-            // pedicure(player); //this actually might not work bc of the scanners
-
-            Scanner sc = new Scanner(System.in);
-
-            System.out.println("\nLet's start with a manicure.");
-            System.out.println("Choose a color from our options. We have: " + colors);
-
-            String ncolor = sc.nextLine(); //will need to convert scanner to an if/else so that it won't take jsut anything in 
-            System.out.println("OMG, " + ncolor + " is my favorite color!\n");
-
-            System.out.println("Choose a length from our options. We have: " + lengths);
-            String length = sc.nextLine();
-            System.out.println("\nAh, " + length + " is a great choice!\n");
-
-            System.out.println("Now, what shape would you like? You can choose from: " + shapes);
-            String shape = sc.nextLine();
-            System.out.println("\nOh I love " + shape + " on you!\n");
-
-            System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + ncolor + " nails! They look great!\n");
-
-            System.out.println("Now, time for a pedicure.");
-            System.out.println("\nChoose a color from our options. We have: " + colors);
-
-            String pcolor = sc.nextLine();
-            System.out.println("Ooh, I love " + pcolor + "!\n");
-
-            System.out.println("Looks like you have a lovely " + pcolor + " pedicure! It turned out great!\n");
-
-            sc.close();
+            manicure (player, color, length, shape);
+            pedicure(player, color); //this actually might not work bc of the scanners            
 
             player.nailsDone = true;
             player.toesDone = true;
@@ -161,9 +119,9 @@ public class NailSalon extends Salon {
         System.out.println(mack.nailsDone);
         // nails.manicure(mack);
         // nails.pedicure(mack);
-        nails.both(mack);
-        nails.manicure(mack);
-        nails.pedicure(mack);
+        // nails.both(mack);
+        // nails.manicure(mack);
+        // nails.pedicure(mack);
         
     }
 }
