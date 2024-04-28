@@ -50,6 +50,11 @@ public class Player {
         }
     }
 
+    public int buy(int amount){
+        this.balance -= amount;
+        return this.balance;
+    }
+
     public void setNailsDone(Boolean nailsDone) {
         this.nailsDone = nailsDone;
     }
