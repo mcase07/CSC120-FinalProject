@@ -1,3 +1,5 @@
+import java.util.Hashtable;
+
 public class Player {
     
     String name;
@@ -11,6 +13,7 @@ public class Player {
     public Boolean toesDone;
     public int balance;
     public Boolean isSitting;
+    public Hashtable<String, Boolean> bag;
 
     public Player(String name){
 
@@ -22,7 +25,7 @@ public class Player {
         this.hairStyled = false;
         this.nailsDone = false;
         this.toesDone = false;
-        this.balance = 20;
+        this.balance = 100;
         this.isSitting = false;
 
         // System.out.println("Hello, " + this.name + "! Currently, you are at " + position + ".");
@@ -47,24 +50,12 @@ public class Player {
         }
     }
 
-    public int getBalance() {
-        return balance;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public Boolean getNailsDone() {
-        return nailsDone;
-    }
-
-    public Boolean getToesDone() {
-        return toesDone;
-    }
-
     public void setNailsDone(Boolean nailsDone) {
         this.nailsDone = nailsDone;
+    }
+
+    public void setToesDone(Boolean toesDone) {
+        this.toesDone = toesDone;
     }
     public static void main(String[] args) {
         Player Player1 = new Player("Jo");

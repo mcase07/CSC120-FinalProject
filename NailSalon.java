@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class NailSalon {
+public class NailSalon extends Building {
     
     ArrayList<String> colors = new ArrayList<String>();
     ArrayList<String> lengths =  new ArrayList<String>();
@@ -43,7 +43,7 @@ public class NailSalon {
     }
 
     // choose color, legth, and style and change player's attribute
-    // check first if nails are already done
+    // check first if nails are already done - move this to be in main so that we check when the player enters the salon
     public void manicure(Player player, String color, String length, String shape){
 
         if (player.nailsDone == false){ //put this if else in the main? like when the player enters the salon 
@@ -60,7 +60,7 @@ public class NailSalon {
             System.out.println("\nOh I love " + shape + " on you!\n");
 
             System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
-            player.nailsDone = true;
+            player.setNailsDone(true);
             
         }else if(player.nailsDone == true){ //change to exception later(?) except that's not how games work 
 
@@ -79,7 +79,7 @@ public class NailSalon {
             System.out.println("Ooh, I love " + color + "!\n");
 
             System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!\n");
-            player.toesDone = true;
+            player.setToesDone(true);
 
         }else{
 
@@ -96,8 +96,8 @@ public class NailSalon {
             manicure (player, color, length, shape);
             pedicure(player, color); //this actually might not work bc of the scanners            
 
-            player.nailsDone = true;
-            player.toesDone = true;
+            player.setNailsDone(true);
+            player.setToesDone(true);
 
         }else if(player.nailsDone == false && player.toesDone == true){
 
