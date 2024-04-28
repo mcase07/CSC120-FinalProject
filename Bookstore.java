@@ -3,7 +3,7 @@ import java.util.Hashtable;
 
 public class Bookstore {
     ArrayList<String> menu = new ArrayList<String>();
-    private Hashtable<String, Boolean> books; 
+    private Hashtable<String, Boolean> books; //change to be called inventory
 
 public Bookstore (){
     books.put("Parable of the Sower by Octavia Butler" , true);
@@ -23,12 +23,13 @@ public Bookstore (){
     books.put("Educating Black Girls by Jawanza Kunjufu", true);
 }
 
-public void menu(){
+public void menu(){ //this will in main
     menu.add("Browse");
     menu.add("Buy");
     System.out.println( "Hi Welcome to or Bookstore! Here is our menu: " + this.menu);
 }
 
+//get rid of browse
 // Check out a book in 'books'
 public void Browse(String name){
     if(this.books.contains(name)){ // checking if this is in book collection
@@ -43,7 +44,7 @@ public void Browse(String name){
           }
   }
 
-  public void Buy(String name){
+  public void Buy(String name){ //goodbye this is in player now 
     if(this.books.contains(name)){ // checking if this is in book collection
       if(this.books.get(name)){ //gets the book from collection
       System.out.println(name + "is availiable to buy"); //prints book
@@ -55,6 +56,9 @@ public void Browse(String name){
       System.out.println(name + "is not available to buy at the moment, try looking for another book."); //prints book + ____
           }
   }
+
+  //the only method we have in the class will be 
+  // chooseBook()
 
 
 }  //implement contract last

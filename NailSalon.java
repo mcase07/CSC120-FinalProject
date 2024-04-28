@@ -36,7 +36,8 @@ public class NailSalon {
         shapes.add("Coffin");
         shapes.add("Flare");
         shapes.add("Oval");
-
+        
+        //move to main
         System.out.println("\nHello! Welcome to our nail salon! Please choose one of the services from our menu:");
         System.out.println(menu + "\n");//i want this to output not in a list format
     }

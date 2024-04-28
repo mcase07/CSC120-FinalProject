@@ -9,6 +9,8 @@ public class Player {
     public Boolean hairStyled;
     public Boolean nailsDone;
     public Boolean toesDone;
+    public int balance;
+    public Boolean isSitting;
 
     public Player(String name){
 
@@ -20,9 +22,10 @@ public class Player {
         this.hairStyled = false;
         this.nailsDone = false;
         this.toesDone = false;
+        this.balance = 20;
+        this.isSitting = false;
 
         // System.out.println("Hello, " + this.name + "! Currently, you are at " + position + ".");
-
     }
 
     String move(String direction){
@@ -44,6 +47,25 @@ public class Player {
         }
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public Boolean getNailsDone() {
+        return nailsDone;
+    }
+
+    public Boolean getToesDone() {
+        return toesDone;
+    }
+
+    public void setNailsDone(Boolean nailsDone) {
+        this.nailsDone = nailsDone;
+    }
     public static void main(String[] args) {
         Player Player1 = new Player("Jo");
 
