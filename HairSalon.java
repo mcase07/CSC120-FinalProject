@@ -1,18 +1,16 @@
 import java.util.ArrayList;
 
-public class HairSalon {
+public class HairSalon extends Building {
 
-    ArrayList<String> menu = new ArrayList<String>();
+    public HairSalon(String name){
+        super(name);
+    }
 
-    public HairSalon(){
-
-        this.menu.add("Wash");
-        this.menu.add("Cut");
-        this.menu.add("Dry");
-        this.menu.add("Style"); 
-
-        System.out.println("\nHello! Welcome to our hair salon! Please choose one of the services from our menu:");
-        System.out.println(menu + "\n");
+    @Override
+    public void showOptions() {
+        // TODO Auto-generated method stub
+        super.showOptions();
+        System.out.println("\n + wash()\n + dry()\n + style()\n + cut()\n");
     }
 
     // wash hair and change player's attribute 
@@ -73,7 +71,7 @@ public class HairSalon {
 
     public static void main(String[] args) {
 
-        HairSalon hairSalon = new HairSalon();
+        HairSalon hairSalon = new HairSalon("Hair Salon");
 
         // System.out.println(hairSalon.menu);
 
