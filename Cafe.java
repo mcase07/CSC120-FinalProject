@@ -9,7 +9,8 @@ public class Cafe  extends Building{
     private int nCreams; // The number of "splashes" of cream remaining in inventory
     private int nCups; // The number of cups remaining in inventory
 
-    public Cafe(int coffee, int sugar, int cream, int cups){
+    public Cafe(String name, int coffee, int sugar, int cream, int cups){
+        super(name);
         menu.add("Latte");
         menu.add("Iced Coffee");
         menu.add("Espresso");
@@ -29,7 +30,9 @@ public class Cafe  extends Building{
     }
 
     //overwritten(overriden?) default constructor
-    public Cafe(){
+    public Cafe(String name){
+        super(name);
+        
         menu.add("Latte");
         menu.add("Iced Coffee");
         menu.add("Espresso");

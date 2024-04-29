@@ -5,8 +5,11 @@ public class Main {
     
     public static void main(String[] args) {
 
-        Bookstore bookStore = new Bookstore();
-        
+        //creating all of our buildings
+        Bookstore bookStore = new Bookstore("The Book Store");
+        Cafe cafe = new Cafe("The Cafe");
+        HairSalon hairSalon = new HairSalon("The Hair Salon");
+        NailSalon nailSalon = new NailSalon("The Nail Salon");
 
         // This is a "flag" to let us know when the loop should end
         boolean stillPlaying = true;
@@ -26,10 +29,10 @@ public class Main {
         
         //directions to play the game
         System.out.println("\nHi, " + player.name + "!");
-        System.out.println("The Hair Salon is to the north.");
-        System.out.println("The Nail Salon is to the south.");
-        System.out.println("The Book Store is to the east.");
-        System.out.println("The Cafe is to the west.");
+        System.out.println("The Hair Salon is to the NORTH");
+        System.out.println("The Nail Salon is to the SOUTH");
+        System.out.println("The Book Store is to the EAST");
+        System.out.println("The Cafe is to the WEST");
         System.out.println("\nIf you would like to end the game, enter END");
         System.out.println("\nEnter a direction to move and start exploring!");
 
@@ -40,35 +43,61 @@ public class Main {
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
             userResponse = userInput.nextLine().toUpperCase();
 
-            if (player.position == "Home"){ //do i need this if statement?
-                if (userResponse.equals("EAST")){
-                    player.position = "Book Store";
-                    System.out.println("Welcome to the " + player.position);
-                    //switch case...?
-                }else if (userResponse.equals("WEST")){
-                    player.position = "Cafe";
-                    System.out.println("Welcome to the " + player.position);
-                    Cafe cafe = new Cafe();
-                    //switch case...?
-                }else if (userResponse.equals("NORTH")){
-                    player.position = "Hair Salon";
-                    System.out.println("Welcome to the " + player.position);
-                    //switch case...?
-                }else if (userResponse.equals("SOUTH")){
-                    player.position = "Nail Salon";
-                    System.out.println("Welcome to the " + player.position);
-                    //switch case...?
-                }else{
-                    //runtime exception...?
-                    System.out.println("Sorry, I don't recognize that response, try something else");
-                }
+            // if (player.position == "Home"){ //do i need this if statement?
+            //     if (userResponse.equals("EAST")){
+            //         player.position = "Book Store";
+            //         System.out.println("Welcome to the " + player.position);
+            //         //switch case...?
+            //     }else if (userResponse.equals("WEST")){
+            //         player.position = "Cafe";
+            //         System.out.println("Welcome to the " + player.position);
+            //         //switch case...?
+            //     }else if (userResponse.equals("NORTH")){
+            //         player.position = "Hair Salon";
+            //         System.out.println("Welcome to the " + player.position);
+            //         //switch case...?
+            //     }else if (userResponse.equals("SOUTH")){
+            //         player.position = "Nail Salon";
+            //         System.out.println("Welcome to the " + player.position);
+            //         //switch case...?
+            //     }else{
+            //         //runtime exception...?
+            //         System.out.println("Sorry, I don't recognize that response, try something else");
+            //     }
+            // }
 
-                switch(player.position){
+            switch(player.position){
+                case "Home":
+                switch(userResponse){
+                    case "EAST":
+                        player.position = "Book Store";
+                        System.out.println("Welcome to the " + player.position);
+                        bookStore.showOptions();
+                        break;
+                    case "WEST":
+                        player.position = "Cafe";
+                        System.out.println("Welcome to the " + player.position);
+                        cafe.showOptions();
+                        break;
+                    case "NORTH":
+                        player.position = "Hair Salon";
+                        System.out.println("Welcome to the " + player.position);
+                        hairSalon.showOptions();
+                        break;
+                    case "SOUTH":
+                        player.position = "Nail Salon";
+                        System.out.println("Welcome to the " + player.position);
+                        nailSalon.showOptions();
+                        break;
+                    default:
+                        //runtime exception...?
+                        System.out.println("Sorry, I don't recognize that response, try something else");
 
-                    case "Book Store":
-                    bookStore.showOptions();
                 }
+                // case "Book Store":
+                // bookStore.showOptions();
             }
+            
 
             
 

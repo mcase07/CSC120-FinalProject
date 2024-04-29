@@ -8,8 +8,9 @@ public class NailSalon extends Building {
     ArrayList<String> shapes =  new ArrayList<String>();
     ArrayList<String> menu = new ArrayList<String>(Arrays.asList("Manicure", "Pedicure", "Both"));
 
-    public NailSalon(){
+    public NailSalon(String name){
         
+        super(name);
         //surely there has to be a better way to do this
         // read files in 
         colors.add("Red");
@@ -123,7 +124,7 @@ public class NailSalon extends Building {
     public static void main(String[] args) {
 
         Player mack = new Player("Mack");
-        NailSalon nails = new NailSalon();
+        NailSalon nails = new NailSalon("Nail Salon");
         System.out.println(mack.nailsDone);
         // nails.manicure(mack);
         // nails.pedicure(mack);

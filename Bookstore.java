@@ -6,7 +6,10 @@ public class Bookstore extends Building {
   public Boolean seat = false;
 
 
-  public Bookstore (){
+  public Bookstore (String name){
+    
+    super(name);
+
     books.add("Parable of the Sower by Octavia Butler");
     books.add("Kindred by Octavia Butler");
     books.add("Bloodchild and Other Stories by Octavia Butler");
@@ -70,7 +73,7 @@ public class Bookstore extends Building {
   }
 
   public static void main(String[] args) {
-    Bookstore bookStore = new Bookstore();
+    Bookstore bookStore = new Bookstore("Book Store");
     bookStore.showOptions();
   }
 
