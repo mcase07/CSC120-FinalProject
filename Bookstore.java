@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class Bookstore {
-    ArrayList<String> menu = new ArrayList<String>();
-    private ArrayList<String> books; //change to be called inventory
-    public Boolean seat = false;
+public class Bookstore extends Building {
+  ArrayList<String> menu = new ArrayList<String>();
+  private ArrayList<String> books = new ArrayList<String>(); //change to be called inventory
+  public Boolean seat = false;
 
 
-public Bookstore (){
+  public Bookstore (){
     books.add("Parable of the Sower by Octavia Butler");
     books.add("Kindred by Octavia Butler");
     books.add("Bloodchild and Other Stories by Octavia Butler");
@@ -22,10 +22,16 @@ public Bookstore (){
     books.add("The Spirit of a Man by Iyanla Vanzant");
     books.add("Black Economics by Jawanza Kunjufu");
     books.add("Educating Black Girls by Jawanza Kunjufu");
-}
+  }
 
+  @Override
+  public void showOptions() {
+    // TODO Auto-generated method stub
+    super.showOptions();
+    System.out.println("\n + chooseBook()\n + returnBook()\n + sit()\n + getUp()\n");
+  }
 
-public void chooseBook(String name){
+  public void chooseBook(String name){
     if(this.books.contains(name)){ // checking if this is in book collection
       this.books.remove(name); //removes the book from collection
       System.out.println(name + "is availiable to look at"); //prints book
@@ -34,34 +40,38 @@ public void chooseBook(String name){
     else{
       System.out.println(name + "is not available to read at the moment"); //prints book + ____ 
     }
-}  
+  }  
 
-public void returnBook(Player player, String name){
-   if(player.bag.contains(name) == true){
+  public void returnBook(Player player, String name){
+    if(player.bag.contains(name) == true){
       this.books.add(name);
-   }
-   else {
+    }
+    else {
     System.out.println("You don't have a book to return.");
-   }
-}
-
-public void sit(Player player){
- if(this.seat == false){
-    System.out.println("You are standing right now.");
- }
- else{
-  if(this.seat == true){
-    System.out.println("You are now sitting down");
-
+    }
   }
- }
-}
 
-public void getUp(Player player){
+  public void sit(Player player){
   if(this.seat == false){
-
+      System.out.println("You are standing right now.");
   }
-}
+  else{
+    if(this.seat == true){
+      System.out.println("You are now sitting down");
 
+    }
+  }
+  }
+
+  public void getUp(Player player){
+    if(this.seat == false){
+
+    }
+  }
+
+  public static void main(String[] args) {
+    Bookstore bookStore = new Bookstore();
+    bookStore.showOptions();
+  }
 
 }

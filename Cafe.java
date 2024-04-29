@@ -21,6 +21,18 @@ public Cafe(int coffee, int sugar, int cream, int cups){
     System.out.println( "Hi Welcome to the Cafe! Here is our menu: " + this.menu);
 }
 
+//overwritten(overriden?) default constructor
+public Cafe(){
+    menu.add("Latte");
+    menu.add("Iced Coffee");
+    menu.add("Espresso");
+    menu.add("Hot Chocoloate");
+    menu.add("Water");
+    menu.add("Cinnamon Roll");
+    menu.add("Croissant");
+    menu.add("Brownie");
+}
+
 public void order(String item){
 
     // moving this all to main:

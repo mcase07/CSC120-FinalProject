@@ -42,6 +42,13 @@ public class NailSalon extends Building {
         System.out.println(menu + "\n");//i want this to output not in a list format
     }
 
+    @Override
+    public void showOptions() {
+        // TODO Auto-generated method stub
+        super.showOptions();
+        System.out.println("\n + manicure()\n + pedicure()\n + both()\n");
+    }
+
     // choose color, legth, and style and change player's attribute
     // check first if nails are already done - move this to be in main so that we check when the player enters the salon
     public void manicure(Player player, String color, String length, String shape){
