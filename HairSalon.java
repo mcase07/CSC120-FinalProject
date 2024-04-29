@@ -2,18 +2,8 @@ import java.util.ArrayList;
 
 public class HairSalon extends Building {
 
-    ArrayList<String> menu = new ArrayList<String>();
-
     public HairSalon(String name){
         super(name);
-
-        this.menu.add("Wash");
-        this.menu.add("Cut");
-        this.menu.add("Dry");
-        this.menu.add("Style"); 
-
-        System.out.println("\nHello! Welcome to our hair salon! Please choose one of the services from our menu:");
-        System.out.println(menu + "\n");
     }
 
     @Override

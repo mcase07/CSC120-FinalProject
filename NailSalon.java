@@ -1,12 +1,10 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class NailSalon extends Building {
     
     ArrayList<String> colors = new ArrayList<String>();
     ArrayList<String> lengths =  new ArrayList<String>();
     ArrayList<String> shapes =  new ArrayList<String>();
-    ArrayList<String> menu = new ArrayList<String>(Arrays.asList("Manicure", "Pedicure", "Both"));
 
     public NailSalon(String name){
         
@@ -37,10 +35,6 @@ public class NailSalon extends Building {
         shapes.add("Coffin");
         shapes.add("Flare");
         shapes.add("Oval");
-        
-        //move to main
-        System.out.println("\nHello! Welcome to our nail salon! Please choose one of the services from our menu:");
-        System.out.println(menu + "\n");//i want this to output not in a list format
     }
 
     @Override
@@ -52,47 +46,16 @@ public class NailSalon extends Building {
 
     // choose color, legth, and style and change player's attribute
     // check first if nails are already done - move this to be in main so that we check when the player enters the salon
-    public void manicure(Player player, String color, String length, String shape){
-
-        if (player.nailsDone == false){ //put this if else in the main? like when the player enters the salon 
-
-            //if statement check if the color user input was correct, if not runtime exception redirecting them to choose color
-
-            System.out.println("\nChoose a color from our options. We have: " + colors);
-            System.out.println("OMG, " + color + " is my favorite color!\n");
-
-            System.out.println("Choose a length from our options. We have: " + lengths);
-            System.out.println("\nAh, " + length + " is a great choice!\n");
-
-            System.out.println("Now, what shape would you like? You can choose from: " + shapes);
-            System.out.println("\nOh I love " + shape + " on you!\n");
-
-            System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
-            player.setNailsDone(true);
-            
-        }else if(player.nailsDone == true){ //change to exception later(?) except that's not how games work 
-
-            System.out.println("Looks like you already have a manicure. Try one of our other services or a different shop!\n");
-        } 
+    public void manicure(Player player){
+        
+        player.setNailsDone(true);
     }
 
     // choose color and change player's attribute
     // check first if toes are already done
-    public void pedicure(Player player, String color){
+    public void pedicure(Player player){
 
-        if (player.toesDone == false){
-
-            System.out.println("\nChoose a color from our options. We have: " + colors);
-
-            System.out.println("Ooh, I love " + color + "!\n");
-
-            System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!\n");
-            player.setToesDone(true);
-
-        }else{
-
-            System.out.println("Looks like you already have a pedicure. Try one of our other services or a different shop!\n");
-        }   
+        player.setToesDone(true);
     }
 
     // run both mani and pedi and change player's attribute
@@ -101,8 +64,8 @@ public class NailSalon extends Building {
 
         if (player.nailsDone == false && player.toesDone == false){
 
-            manicure (player, color, length, shape);
-            pedicure(player, color); //this actually might not work bc of the scanners            
+            manicure (player);
+            pedicure(player); //this actually might not work bc of the scanners            
 
             player.setNailsDone(true);
             player.setToesDone(true);

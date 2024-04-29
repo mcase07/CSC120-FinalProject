@@ -23,7 +23,7 @@ public class Main {
         //welcome message
         System.out.println("\nWelcome to Wellness World. This is a shopping center that you can explore! Make purchases, get services done, and enjoy!\n");
         
-        System.out.println("\nFirst, enter your name to begin");
+        System.out.println("\nEnter your name to begin");
         userResponse = userInput.nextLine();
         Player player = new Player(userResponse);
         
@@ -42,29 +42,6 @@ public class Main {
             // The stuff that happens in your game will go here
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
             userResponse = userInput.nextLine().toUpperCase();
-
-            // if (player.position == "Home"){ //do i need this if statement?
-            //     if (userResponse.equals("EAST")){
-            //         player.position = "Book Store";
-            //         System.out.println("Welcome to the " + player.position);
-            //         //switch case...?
-            //     }else if (userResponse.equals("WEST")){
-            //         player.position = "Cafe";
-            //         System.out.println("Welcome to the " + player.position);
-            //         //switch case...?
-            //     }else if (userResponse.equals("NORTH")){
-            //         player.position = "Hair Salon";
-            //         System.out.println("Welcome to the " + player.position);
-            //         //switch case...?
-            //     }else if (userResponse.equals("SOUTH")){
-            //         player.position = "Nail Salon";
-            //         System.out.println("Welcome to the " + player.position);
-            //         //switch case...?
-            //     }else{
-            //         //runtime exception...?
-            //         System.out.println("Sorry, I don't recognize that response, try something else");
-            //     }
-            // }
 
             switch(player.position){
                 case "Home":
@@ -92,36 +69,58 @@ public class Main {
                     default:
                         //runtime exception...?
                         System.out.println("Sorry, I don't recognize that response, try something else");
-
                 }
-                // case "Book Store":
-                // bookStore.showOptions();
+                case "Nail Salon":
+                switch(userResponse = userInput.nextLine().toUpperCase()){
+                    case "MANICURE":
+                    if (player.nailsDone == true){
+                        System.out.println("Looks like you already have a manicure. Try one of our other services or a different shop!\n");
+                    }else{
+                        
+                        System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
+                        String color = userInput.nextLine();
+                        System.out.println("OMG, " + color + " is my favorite color!\n");
+                        
+                        System.out.println("Choose a length from our options. We have: " + nailSalon.lengths);
+                        String length = userInput.nextLine();
+                        System.out.println("\nAh, " + length + " is a great choice!\n");
+
+                        System.out.println("Now, what shape would you like? You can choose from: " + nailSalon.shapes);
+                        String shape = userInput.nextLine();
+                        System.out.println("\nOh I love " + shape + " on you!\n");
+
+                        nailSalon.manicure(player);
+                        System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
+                    }
+                    break;
+                    case "PEDICURE":
+                    if (player.toesDone == false){
+
+                        System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
+                        String color = userInput.nextLine();
+
+                        nailSalon.pedicure(player);
+                        System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!\n");
+
+                    }else{
+                        System.out.println("Looks like you already have a pedicure. Try one of our other services or a difference shop!\n");
+                    }
+                    break;
+                    case "BOTH":
+                    //something something
+                    default:
+                        //runtime exception...?
+                        System.out.println("Sorry, I don't recognize that response, try something else");
+                }
             }
-            
-
-            
-
-
-            // System.out.println("You are still playing. Follow the instructions if you want to win/lose...");
-            // userResponse = userInput.nextLine().toUpperCase();
-
-            // ***********************************************************************
-            // And as the player interacts, you'll check to see if the game should end
-            //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
+            //check to see if game should end
             if (userResponse.equals("END")) {
                 stillPlaying = false;
             }
         } while (stillPlaying);
-
         // Tidy up
         userInput.close();
         System.out.println("Thanks for visiting Wellness World, come back soon!");
-
-        // Player mack = new Player("Mack");
-        // mack.move("EAST");
-        // System.out.println(mack.move("EAST"));
-        // //call move when they choose 
-
-    }
     
+    }
 }
