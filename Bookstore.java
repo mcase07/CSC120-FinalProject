@@ -46,20 +46,13 @@ public void returnBook(Player player, String name){
 }
 
 public void sit(Player player){
- if(this.seat == false){
-    System.out.println("You are standing right now.");
- }
- else{
   if(this.seat == true){
-    System.out.println("You are now sitting down");
-
-  }
- }
-}
-
+    System.out.println("You are now sitting down");}
+    }
+  
 public void getUp(Player player){
   if(this.seat == false){
-
+    System.out.println("You are standing right now.");
   }
 }
 

@@ -3,13 +3,19 @@ import java.util.Hashtable;
 
 public class Cafe {
     ArrayList<String> menu = new ArrayList<String>();
+    private int latte; // The number of latte remaining in inventory
+    private int icedCoffee; // The number of icedCoffee remaining in inventory
+    private int espresso; // The number of espresso remaining in inventory
+    private int hotChocolate; // The number of hotChocolate remaining in inventory
+    private int water; // The number of water remaining in inventory
+    private int cinnamonRoll; // The number of cinnamonRoll remaining in inventory
+    private int croissant; // The number of croissant remaining in inventory
+    private int brownie; // The number of brownie remaining in inventory
+    public Boolean seat = false;
     private Hashtable<String, Boolean> seats; 
-    private int nCoffeeOunces; // The number of ounces of coffee remaining in inventory
-    private int nSugarPackets; // The number of sugar packets remaining in inventory
-    private int nCreams; // The number of "splashes" of cream remaining in inventory
-    private int nCups; // The number of cups remaining in inventory
+    public Hashtable <String, Integer > inventory; 
 
-public Cafe(int coffee, int sugar, int cream, int cups){
+public Cafe(int latte, int icedCoffee, int espresso, int hotChocolate, int water, int cinnamonRoll, int croissant, int brownie){
     menu.add("Latte");
     menu.add("Iced Coffee");
     menu.add("Espresso");
@@ -21,20 +27,20 @@ public Cafe(int coffee, int sugar, int cream, int cups){
     System.out.println( "Hi Welcome to the Cafe! Here is our menu: " + this.menu);
 }
 
-public void order(String item){
+//public void order(String item){
 
     // moving this all to main:
     // System.out.println("Here is our menu :" + menu + ".\n");
     // Scanner sc = new Scanner(System.in);
     // System.out.println("What would you like to order?");
     // String order = sc.nextLine();
-    System.out.println("You have ordered a " + item + ", coming right up!\n");
+   // System.out.println("You have ordered a " + item + ", coming right up!\n");
 
    // sc.close();
 
-}
+//}
 
-public void sellCoffee(int size, int nSugarPackets, int nCreams, int nCups){
+public void sellItem(int latte, int icedCoffee, int espresso, int hotChocolate, int water, int cinnamonRoll, int croissant, int brownie){
     if(size > this.nCoffeeOunces||nSugarPackets> this.nSugarPackets|| nCreams> this.nCreams|| nCups> nCups){
     }
     // values of Parameter (in this case all ints) decrease
@@ -44,8 +50,19 @@ public void sellCoffee(int size, int nSugarPackets, int nCreams, int nCups){
       nCups -= 1;
   }
 
-  private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups){
+  private void restock(int latte, int icedCoffee, int espresso, int hotChocolate, int water, int cinnamonRoll, int croissant, int brownie){
 }
 
+
+public void sit(Player player){
+    if(this.seat == true){
+      System.out.println("You are now sitting down");}
+      }
+    
+  public void getUp(Player player){
+    if(this.seat == false){
+      System.out.println("You are standing right now.");
+    }
+  }
 
 }
