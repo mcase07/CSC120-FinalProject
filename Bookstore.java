@@ -54,16 +54,33 @@ public class Bookstore extends Building {
     }
   }
 
+
+
+
 public void sit(Player player){
-  if(this.seat == true){
-    System.out.println("You are now sitting down");}
+  if(player.isSitting == true){
+    System.out.println("You are already sitting down.");}
+    else {
+      if(player.isSitting == false){
+        player.isSitting = true;
+        System.out.println("You are now sitting down.");
+      }
+    }
     }
   
 public void getUp(Player player){
-  if(this.seat == false){
-    System.out.println("You are standing right now.");
+  if(player.isSitting == false){
+    System.out.println("You are already standing.");
+  }
+  else{
+    if(player.isSitting == true){
+      player.isSitting = false;
+      System.out.println("You are now standing up.");
   }
 }
+}
+
+
 
   public static void main(String[] args) {
     Bookstore bookStore = new Bookstore("Book Store");
