@@ -36,24 +36,22 @@ public class Cafe  extends Building{
 
     // sc.close();
 
-
-
 public void sellItem(String name, int latte, int icedCoffee, int espresso, int hotChocolate, int water, int cinnamonRoll, int croissant, int brownie){
-    if(size > this.nCoffeeOunces||nSugarPackets> this.nSugarPackets|| nCreams> this.nCreams|| nCups> nCups){
+    if(latte > this.latte||icedCoffee> this.icedCoffee|| espresso> this.espresso|| hotChocolate> this.hotChocolate||water> this.water|| cinnamonRoll> this.cinnamonRoll|| croissant> this.croissant|| brownie> this.brownie){
     }
     // values of Parameter (in this case all ints) decrease
-      nCoffeeOunces -= size; 
-      nSugarPackets -=  nSugarPackets;
-      nCreams -= nCreams;
-      nCups -= 1;
-  }
-
-
+        latte -= latte; 
+        icedCoffee -=  icedCoffee;
+        espresso -= espresso;
+        hotChocolate -= hotChocolate;
+        water -= water;
+        cinnamonRoll -= cinnamonRoll;
+        croissant -= croissant;
+        brownie -= brownie;
+    }
 
   private void restock(String name, int latte, int icedCoffee, int espresso, int hotChocolate, int water, int cinnamonRoll, int croissant, int brownie){
 }
-
-
 
 
 public void sit(Player player){
