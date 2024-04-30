@@ -76,7 +76,7 @@ public class Main {
                     if (player.nailsDone == true){
                         System.out.println("Looks like you already have a manicure. Try one of our other services or a different shop!\n");
                     }else{
-                        
+        
                         System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
                         String color = userInput.nextLine();
                         System.out.println("OMG, " + color + " is my favorite color!\n");
@@ -107,13 +107,27 @@ public class Main {
                     }
                     break;
                     case "BOTH":
-                    //something something
+                    if (player.nailsDone == false && player.toesDone == false){
+                        nailSalon.both(player);
+                    }else if(player.nailsDone == false && player.toesDone == true){
+            
+                        System.out.println("Looks like you already have your toes painted. How about trying a manicure?");
+            
+                    }else if(player.nailsDone == true && player.toesDone == false){
+            
+                        System.out.println("Looks like you already have your nails painted. How about trying a pedicure?");
+            
+                    }else if(player.nailsDone == true && player.toesDone == true){
+            
+                        System.out.println("Looks like you already have your nails and toes painted. How about trying a different shop?");
+                    }
                     default:
                         //runtime exception...?
                         System.out.println("Sorry, I don't recognize that response, try something else");
                 }
             }
             //check to see if game should end
+            //does this just need to be sprinkled throughout??
             if (userResponse.equals("END")) {
                 stillPlaying = false;
             }

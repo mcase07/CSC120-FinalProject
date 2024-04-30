@@ -41,7 +41,7 @@ public class NailSalon extends Building {
     public void showOptions() {
         // TODO Auto-generated method stub
         super.showOptions();
-        System.out.println("\n + manicure()\n + pedicure()\n + both()\n");
+        System.out.println("\n + Manicure\n + Pedicure\n + Both\n");
     }
 
     // choose color, legth, and style and change player's attribute
@@ -60,28 +60,10 @@ public class NailSalon extends Building {
 
     // run both mani and pedi and change player's attribute
     // check first the status of nails/toes being done
-    public void both(Player player, String color, String length, String shape){ // call manicure() or pedicure() instead of having the full code out 
+    public void both(Player player){ // call manicure() or pedicure() instead of having the full code out 
 
-        if (player.nailsDone == false && player.toesDone == false){
-
-            manicure (player);
-            pedicure(player); //this actually might not work bc of the scanners            
-
-            player.setNailsDone(true);
-            player.setToesDone(true);
-
-        }else if(player.nailsDone == false && player.toesDone == true){
-
-            System.out.println("Looks like you already have your toes painted. How about trying a manicure?");
-
-        }else if(player.nailsDone == true && player.toesDone == false){
-
-            System.out.println("Looks like you already have your nails painted. How about trying a pedicure?");
-
-        }else if(player.nailsDone == true && player.toesDone == true){
-
-            System.out.println("Looks like you already have your nails and toes painted. How about trying a different shop?");
-        }
+        manicure (player);
+        pedicure(player); 
     }
 
     public static void main(String[] args) {

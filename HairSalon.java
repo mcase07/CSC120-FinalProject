@@ -10,7 +10,7 @@ public class HairSalon extends Building {
     public void showOptions() {
         // TODO Auto-generated method stub
         super.showOptions();
-        System.out.println("\n + wash()\n + dry()\n + style()\n + cut()\n");
+        System.out.println("\n + Wash\n + Dry\n + Style\n + Cut\n");
     }
 
     // wash hair and change player's attribute 

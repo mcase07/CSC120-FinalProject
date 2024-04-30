@@ -76,6 +76,5 @@ public void sit(Player player){
   }
   }
 
-
 }
 
