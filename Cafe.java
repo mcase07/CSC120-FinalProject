@@ -3,7 +3,7 @@ import java.util.Hashtable;
 public class Cafe  extends Building{
     public Boolean seat = false;
     private Hashtable<String, Boolean> seats; 
-    public Hashtable <String, Integer > inventory; 
+    public Hashtable <String, Integer > inventory = new Hashtable<String, Integer>(); 
 
     public Cafe(String name){
         super(name);
@@ -75,6 +75,7 @@ public void sit(Player player){
         System.out.println("You are now standing up.");}
   }
   }
+
 
 }
 
