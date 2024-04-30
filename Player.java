@@ -43,10 +43,6 @@ public class Player {
         }
     }
 
-    public void exit(){
-        this.position = "Home"; 
-    }
-
     public int buy(int amount){
         this.balance -= amount;
         return this.balance;

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class HairSalon extends Building {
 
     public HairSalon(String name){
@@ -69,25 +67,25 @@ public class HairSalon extends Building {
         }
     }
 
-    public static void main(String[] args) {
+    // public static void main(String[] args) {
 
-        HairSalon hairSalon = new HairSalon("Hair Salon");
+    //     HairSalon hairSalon = new HairSalon("Hair Salon");
 
-        // System.out.println(hairSalon.menu);
+    //     // System.out.println(hairSalon.menu);
 
-        Player me = new Player("mack");
-        // System.out.println(me.hairWashed);
-        // me.hairWashed = true;
-        // hairSalon.style(me);
-        System.out.println(me.nHairCuts);
-        hairSalon.cut(me);
-        hairSalon.cut(me);
-        hairSalon.cut(me);
-        System.out.println(me.nHairCuts);
-        hairSalon.cut(me);
-        // hairSalon.wash(Player1);
-        // System.out.println(Player1.hairWashed);
-        // hairSalon.wash(Player1);
+    //     Player me = new Player("mack");
+    //     // System.out.println(me.hairWashed);
+    //     // me.hairWashed = true;
+    //     // hairSalon.style(me);
+    //     System.out.println(me.nHairCuts);
+    //     hairSalon.cut(me);
+    //     hairSalon.cut(me);
+    //     hairSalon.cut(me);
+    //     System.out.println(me.nHairCuts);
+    //     hairSalon.cut(me);
+    //     // hairSalon.wash(Player1);
+    //     // System.out.println(Player1.hairWashed);
+    //     // hairSalon.wash(Player1);
 
-    }
+    // }
 }

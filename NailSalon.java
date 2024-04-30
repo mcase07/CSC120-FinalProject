@@ -10,7 +10,7 @@ public class NailSalon extends Building {
         
         super(name);
         //surely there has to be a better way to do this
-        // read files in 
+        //there is! read files in 
         colors.add("Red");
         colors.add("Orange");
         colors.add("Yellow");
@@ -41,41 +41,38 @@ public class NailSalon extends Building {
     public void showOptions() {
         // TODO Auto-generated method stub
         super.showOptions();
-        System.out.println("\n + Manicure\n + Pedicure\n + Both\n");
+        System.out.println(" + Manicure\n + Pedicure\n + Both\n");
     }
 
     // choose color, legth, and style and change player's attribute
-    // check first if nails are already done - move this to be in main so that we check when the player enters the salon
     public void manicure(Player player){
         
         player.setNailsDone(true);
     }
 
     // choose color and change player's attribute
-    // check first if toes are already done
     public void pedicure(Player player){
 
         player.setToesDone(true);
     }
 
     // run both mani and pedi and change player's attribute
-    // check first the status of nails/toes being done
-    public void both(Player player){ // call manicure() or pedicure() instead of having the full code out 
+    public void both(Player player){ 
 
         manicure (player);
         pedicure(player); 
     }
 
-    public static void main(String[] args) {
+    // public static void main(String[] args) {
 
-        Player mack = new Player("Mack");
-        NailSalon nails = new NailSalon("Nail Salon");
-        System.out.println(mack.nailsDone);
-        // nails.manicure(mack);
-        // nails.pedicure(mack);
-        // nails.both(mack);
-        // nails.manicure(mack);
-        // nails.pedicure(mack);
+    //     Player mack = new Player("Mack");
+    //     NailSalon nails = new NailSalon("Nail Salon");
+    //     System.out.println(mack.nailsDone);
+    //     // nails.manicure(mack);
+    //     // nails.pedicure(mack);
+    //     // nails.both(mack);
+    //     // nails.manicure(mack);
+    //     // nails.pedicure(mack);
         
-    }
+    // }
 }

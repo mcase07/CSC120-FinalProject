@@ -6,6 +6,8 @@ public class Main {
     public static void main(String[] args) {
 
         //creating all of our buildings
+        //need this for the eventual refill wallet
+        Home home = new Home();
         Bookstore bookStore = new Bookstore("The Book Store");
         Cafe cafe = new Cafe("The Cafe");
         HairSalon hairSalon = new HairSalon("The Hair Salon");
@@ -43,16 +45,22 @@ public class Main {
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
             userResponse = userInput.nextLine().toUpperCase();
 
-            switch(player.position){
-                case "Home":
+            //player's position is home at this point!
+            while (!userResponse.equals("EAST") && !userResponse.equals("WEST") && !userResponse.equals("NORTH") && !userResponse.equals("SOUTH")){
+                System.out.println("Sorry, I don't recognize that response, try something else.");
+                userResponse = userInput.nextLine().toUpperCase();
+            }
+            // switch(player.position){
+            //     case "Home":
+                // this switch case is based on direction
                 switch(userResponse){
                     case "EAST":
-                        player.position = "Book Store";
+                        player.position = "Cafe";
                         System.out.println("Welcome to the " + player.position);
                         bookStore.showOptions();
                         break;
                     case "WEST":
-                        player.position = "Cafe";
+                        player.position = "Book Store";
                         System.out.println("Welcome to the " + player.position);
                         cafe.showOptions();
                         break;
@@ -66,65 +74,69 @@ public class Main {
                         System.out.println("Welcome to the " + player.position);
                         nailSalon.showOptions();
                         break;
-                    default:
-                        //runtime exception...?
-                        System.out.println("Sorry, I don't recognize that response, try something else");
-                }
+                    
+                // }
                 case "Nail Salon":
-                switch(userResponse = userInput.nextLine().toUpperCase()){
-                    case "MANICURE":
-                    if (player.nailsDone == true){
-                        System.out.println("Looks like you already have a manicure. Try one of our other services or a different shop!\n");
-                    }else{
-        
-                        System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
-                        String color = userInput.nextLine();
-                        System.out.println("OMG, " + color + " is my favorite color!\n");
-                        
-                        System.out.println("Choose a length from our options. We have: " + nailSalon.lengths);
-                        String length = userInput.nextLine();
-                        System.out.println("\nAh, " + length + " is a great choice!\n");
-
-                        System.out.println("Now, what shape would you like? You can choose from: " + nailSalon.shapes);
-                        String shape = userInput.nextLine();
-                        System.out.println("\nOh I love " + shape + " on you!\n");
-
-                        nailSalon.manicure(player);
-                        System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
-                    }
-                    break;
-                    case "PEDICURE":
-                    if (player.toesDone == false){
-
-                        System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
-                        String color = userInput.nextLine();
-
-                        nailSalon.pedicure(player);
-                        System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!\n");
-
-                    }else{
-                        System.out.println("Looks like you already have a pedicure. Try one of our other services or a difference shop!\n");
-                    }
-                    break;
-                    case "BOTH":
-                    if (player.nailsDone == false && player.toesDone == false){
-                        nailSalon.both(player);
-                    }else if(player.nailsDone == false && player.toesDone == true){
-            
-                        System.out.println("Looks like you already have your toes painted. How about trying a manicure?");
-            
-                    }else if(player.nailsDone == true && player.toesDone == false){
-            
-                        System.out.println("Looks like you already have your nails painted. How about trying a pedicure?");
-            
-                    }else if(player.nailsDone == true && player.toesDone == true){
-            
-                        System.out.println("Looks like you already have your nails and toes painted. How about trying a different shop?");
-                    }
-                    default:
-                        //runtime exception...?
-                        System.out.println("Sorry, I don't recognize that response, try something else");
+                userResponse = userInput.nextLine().toUpperCase();
+                while (!userResponse.equals("MANICURE") && !userResponse.equals("PEDICURE") && !userResponse.equals("BOTH") && !userResponse.equals("EXIT")){
+                    System.out.println("Sorry, I don't recognize that response, try something else.");
+                    userResponse = userInput.nextLine().toUpperCase();
                 }
+                    switch(userResponse){
+                        case "MANICURE":
+                        if (player.nailsDone == true){
+                            System.out.println("Looks like you already have a manicure. Try one of our other services or a different shop!\n");
+                        }else{
+                            System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
+                            String color = userInput.nextLine();
+                            System.out.println("OMG, " + color + " is my favorite color!\n");
+                            
+                            System.out.println("Choose a length from our options. We have: " + nailSalon.lengths);
+                            String length = userInput.nextLine();
+                            System.out.println("\nAh, " + length + " is a great choice!\n");
+
+                            System.out.println("Now, what shape would you like? You can choose from: " + nailSalon.shapes);
+                            String shape = userInput.nextLine();
+                            System.out.println("\nOh I love " + shape + " on you!\n");
+
+                            nailSalon.manicure(player);
+                            System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
+                            System.out.println("Would you like more services at The Nail Salon? Enter 1 to stay here, 2 to exit.");
+
+                            // userResponse
+                            
+                            //prompt user for 1 to quit, 2 to continue - need depends on the loops we have
+                        }
+                        break;
+                        case "PEDICURE":
+                        if (player.toesDone == false){
+                            System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
+                            String color = userInput.nextLine();
+
+                            nailSalon.pedicure(player);
+                            System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!\n");
+                        }else{
+                            System.out.println("Looks like you already have a pedicure. Try one of our other services or a difference shop!\n");
+                        }
+                        break;
+                        case "BOTH":
+                        if (player.nailsDone == false && player.toesDone == false){
+                            nailSalon.both(player);
+                        }else if(player.nailsDone == false && player.toesDone == true){
+                
+                            System.out.println("Looks like you already have your toes painted. How about trying a manicure?");
+                
+                        }else if(player.nailsDone == true && player.toesDone == false){
+                
+                            System.out.println("Looks like you already have your nails painted. How about trying a pedicure?");
+                
+                        }else if(player.nailsDone == true && player.toesDone == true){
+                
+                            System.out.println("Looks like you already have your nails and toes painted. How about trying a different shop?");
+                        }
+                        case "EXIT":
+                        break;
+                    }
             }
             //check to see if game should end
             //does this just need to be sprinkled throughout??
