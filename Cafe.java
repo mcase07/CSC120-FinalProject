@@ -25,7 +25,6 @@ public class Cafe  extends Building{
         System.out.println("\n + sellItem()\n + sit()\n + getUp()\n");
     }
 
-
 // public void order(String item){
 
     // moving this all to main:
@@ -37,9 +36,9 @@ public class Cafe  extends Building{
 
     // sc.close();
 
-}
 
-public void sellItem(int size, int nSugarPackets, int nCreams, int nCups){
+
+public void sellItem(String name, int latte, int icedCoffee, int espresso, int hotChocolate, int water, int cinnamonRoll, int croissant, int brownie){
     if(size > this.nCoffeeOunces||nSugarPackets> this.nSugarPackets|| nCreams> this.nCreams|| nCups> nCups){
     }
     // values of Parameter (in this case all ints) decrease
@@ -49,8 +48,13 @@ public void sellItem(int size, int nSugarPackets, int nCreams, int nCups){
       nCups -= 1;
   }
 
-  private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups){
+
+
+  private void restock(String name, int latte, int icedCoffee, int espresso, int hotChocolate, int water, int cinnamonRoll, int croissant, int brownie){
 }
+
+
+
 
 public void sit(Player player){
     if(player.isSitting == true){
@@ -70,10 +74,10 @@ public void sit(Player player){
     else{
       if(player.isSitting == true){
         player.isSitting = false;
-        System.out.println("You are now standing up.");
-    }
+        System.out.println("You are now standing up.");}
   }
   }
 
 
+}
 
