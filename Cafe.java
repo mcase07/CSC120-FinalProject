@@ -36,21 +36,21 @@ public class Cafe  extends Building{
 
     // sc.close();
 
-public void sellItem(String name, int latte, int icedCoffee, int espresso, int hotChocolate, int water, int cinnamonRoll, int croissant, int brownie){
-    if(latte > this.latte||icedCoffee> this.icedCoffee|| espresso> this.espresso|| hotChocolate> this.hotChocolate||water> this.water|| cinnamonRoll> this.cinnamonRoll|| croissant> this.croissant|| brownie> this.brownie){
+public void sellItem(String item){
+   int n = this.inventory.get(item);
+   if (n < 1){
+    this.restock(item);}
+    else{
+    n = -1;
+    this.inventory.replace (item, n);
     }
-    // values of Parameter (in this case all ints) decrease
-        latte -= latte; 
-        icedCoffee -=  icedCoffee;
-        espresso -= espresso;
-        hotChocolate -= hotChocolate;
-        water -= water;
-        cinnamonRoll -= cinnamonRoll;
-        croissant -= croissant;
-        brownie -= brownie;
-    }
+}
 
-  private void restock(String name, int latte, int icedCoffee, int espresso, int hotChocolate, int water, int cinnamonRoll, int croissant, int brownie){
+  private void restock(String item){
+    int n = this.inventory.get(item);
+    if (n < 1){
+        this.inventory.replace(item, 10);
+    }
 }
 
 
