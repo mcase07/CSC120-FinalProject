@@ -7,14 +7,14 @@ public class Cafe  extends Building{
 
     public Cafe(String name){
         super(name);
-        inventory.put("Latte", 10);
-        inventory.put("Iced Coffee", 10);
-        inventory.put("Espresso", 10);
-        inventory.put("Hot Chocoloate", 10);
-        inventory.put("Water", 10);
-        inventory.put("Cinnamon Roll", 10);
-        inventory.put("Croissant", 10);
-        inventory.put("Brownie", 10);
+        this.inventory.put("Latte", 10);
+        this.inventory.put("Iced Coffee", 10);
+        this.inventory.put("Espresso", 10);
+        this.inventory.put("Hot Chocoloate", 10);
+        this.inventory.put("Water", 10);
+        this.inventory.put("Cinnamon Roll", 10);
+        this.inventory.put("Croissant", 10);
+        this.inventory.put("Brownie", 10);
         System.out.println( "Hi Welcome to the Cafe! Here is our menu: " + this.inventory);
     }
 
