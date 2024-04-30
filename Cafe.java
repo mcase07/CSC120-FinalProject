@@ -15,7 +15,9 @@ public class Cafe  extends Building{
         this.inventory.put("Cinnamon Roll", 10);
         this.inventory.put("Croissant", 10);
         this.inventory.put("Brownie", 10);
-        System.out.println( "Hi Welcome to the Cafe! Here is our menu: " + this.inventory);
+
+        //don't need below line anymore, it goes in main
+        // System.out.println( "Hi Welcome to the Cafe! Here is our menu: " + this.inventory);
     }
 
     @Override
