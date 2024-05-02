@@ -234,14 +234,42 @@ public class Main {
 
                             nailSalon.pedicure(player);
                             System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!\n");
+                            break;
                         }else{
                             System.out.println("Looks like you already have a pedicure. Try one of our other services or a difference shop!\n");
+                            break;
                         }
-                        break;
                         //both doesn't really work for some reason...idk 
                         case "BOTH":
                         if (player.nailsDone == false && player.toesDone == false){
+
+                            //manicure tings
+                            System.out.println("\nChoose a color for your nails from our options. We have: " + nailSalon.colors);
+                            String color = userInput.nextLine();
+                            System.out.println("OMG, " + color + " is my favorite color!\n");
+                            
+                            System.out.println("Choose a length from our options. We have: " + nailSalon.lengths);
+                            String length = userInput.nextLine();
+                            System.out.println("\nAh, " + length + " is a great choice!\n");
+
+                            System.out.println("Now, what shape would you like? You can choose from: " + nailSalon.shapes);
+                            String shape = userInput.nextLine();
+                            System.out.println("\nOh I love " + shape + " on you!\n");
+
+                            nailSalon.manicure(player);
+                            System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
+                            // System.out.println("Would you like more services at The Nail Salon? Enter 1 to stay here, 2 to exit.");
+                            
+                            //pedicure tings
+                            System.out.println("\nChoose a color for your toes from our options. We have: " + nailSalon.colors);
+                            String color2 = userInput.nextLine();
+
+                            nailSalon.pedicure(player);
+                            System.out.println("Looks like you have a lovely " + color2 + " pedicure! It turned out great!\n");
+
                             nailSalon.both(player);
+                            break;
+                            
                         }else if(player.nailsDone == false && player.toesDone == true){
                 
                             System.out.println("Looks like you already have your toes painted. How about trying a manicure?");
