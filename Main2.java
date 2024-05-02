@@ -29,25 +29,36 @@ public class Main2 {
         
         //directions to play the game
         System.out.println("\nHi, " + player.name + "!");
-        System.out.println("The Hair Salon is to the NORTH");
-        System.out.println("The Nail Salon is to the SOUTH");
-        System.out.println("The Book Store is to the EAST");
-        System.out.println("The Cafe is to the WEST");
-        System.out.println("\nIf you would like to end the game, enter END");
-        System.out.println("\nEnter a direction to move and start exploring!");
+        // System.out.println("The Hair Salon is to the NORTH");
+        // System.out.println("The Nail Salon is to the SOUTH");
+        // System.out.println("The Book Store is to the EAST");
+        // System.out.println("The Cafe is to the WEST");
+        // System.out.println("\nIf you would like to end the game, enter END");
+        // System.out.println("\nEnter a direction to move and start exploring!");
 
      // The do...while structure means we execute the body of the loop once before checking the stopping condition
         do {
             // ************************************************
             // The stuff that happens in your game will go here
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
+            
+
+            //player's position is home at this point!
+            //say: you're back home! choose a direction 
+            System.out.println("\nYou're at home!\n");
+            System.out.println("The Hair Salon is to the NORTH");
+            System.out.println("The Nail Salon is to the SOUTH");
+            System.out.println("The Book Store is to the EAST");
+            System.out.println("The Cafe is to the WEST");
+            System.out.println("\nIf you would like to end the game, enter END");
+            System.out.println("\nEnter a direction to move!");
+
             userResponse = userInput.nextLine().toUpperCase();
             
             if (userResponse.equals("END")) {
                 stillPlaying = false;
             } 
 
-            //player's position is home at this point!
             while (!userResponse.equals("EAST") && !userResponse.equals("WEST") && !userResponse.equals("NORTH") && !userResponse.equals("SOUTH") && !userResponse.equals("END")){
                 System.out.println("Sorry, I don't recognize that response, try something else.");
                 userResponse = userInput.nextLine().toUpperCase();
@@ -166,6 +177,7 @@ public class Main2 {
                             System.out.println("Looks like you already have a pedicure. Try one of our other services or a difference shop!\n");
                         }
                         break;
+                        //both doesn't really work for some reason...idk 
                         case "BOTH":
                         if (player.nailsDone == false && player.toesDone == false){
                             nailSalon.both(player);
