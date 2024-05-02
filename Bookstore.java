@@ -1,9 +1,14 @@
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Scanner;
 
 public class Bookstore extends Building {
+
   ArrayList<String> menu = new ArrayList<String>();
   private ArrayList<String> books = new ArrayList<String>(); //change to be called inventory
   public Boolean seat = false;
+  public Hashtable<String, Boolean> bag;
+
 
 
   public Bookstore (String name){
@@ -34,6 +39,10 @@ public class Bookstore extends Building {
     System.out.println("\n + chooseBook()\n + returnBook()\n + sit()\n + getUp()\n");
   }
 
+  public void buy(String name){
+    this.books.remove(name);
+  }
+
   public void chooseBook(String name){
     if(this.books.contains(name)){ // checking if this is in book collection
       this.books.remove(name); //removes the book from collection
@@ -43,7 +52,43 @@ public class Bookstore extends Building {
     else{
       System.out.println(name + "is not available to read at the moment"); //prints book + ____ 
     }
-  }  
+
+    this.bag.put(name, false);
+
+    Scanner input = new Scanner(System.in);
+    System.out.println("Would you like to purchase book in your bag?");
+    input.nextLine();
+    if (input.equals ("y")){
+      this.buy(name);
+      this.bag.replace(name, true);
+
+    }
+
+
+
+
+
+
+
+
+
+    //player needs to be able to purchase book in order for the value to turn true
+
+
+//     if(this.bag.contains(name) == false){
+//       return name;
+//       this.books.remove(name);
+//       System.out.println("You have not paid for this book, it is not in your bag.");}
+
+//     if(this.bag.contains(name) == true){
+// // turn false to true?
+//       this.name.add(bag);
+//       System.out.println("This book had been paid for and is now if your bag");
+    }
+
+
+
+
 
   public void returnBook(Player player, String name){
     if(player.bag.contains(name) == true){
@@ -80,11 +125,9 @@ public void getUp(Player player){
 }
 }
 
-
-
-  public static void main(String[] args) {
-    Bookstore bookStore = new Bookstore("Book Store");
-    bookStore.showOptions();
-  }
-
 }
+
+  // public static void main(String[] args) {
+  //  Bookstore bookStore = new Bookstore("Book Store");
+  //   bookStore.showOptions();
+  // }
