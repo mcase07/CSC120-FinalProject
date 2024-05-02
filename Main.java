@@ -33,8 +33,8 @@ public class Main {
         System.out.println("\nHi, " + player.name + "!");
         System.out.println("The Hair Salon is to the NORTH");
         System.out.println("The Nail Salon is to the SOUTH");
-        System.out.println("The Book Store is to the EAST");
-        System.out.println("The Cafe is to the WEST");
+        System.out.println("The Book Store is to the WEST");
+        System.out.println("The Cafe is to the EAST");
         System.out.println("\nIf you would like to end the game, enter END");
         System.out.println("\nEnter a direction to move and start exploring!");
 
@@ -78,7 +78,7 @@ public class Main {
                 // }
                 case "Nail Salon":
                 userResponse = userInput.nextLine().toUpperCase();
-                while (!userResponse.equals("MANICURE") && !userResponse.equals("PEDICURE") && !userResponse.equals("BOTH") && !userResponse.equals("EXIT")){
+                while (!userResponse.equals("MANICURE") || !userResponse.equals("PEDICURE") || !userResponse.equals("BOTH") || !userResponse.equals("EXIT")){
                     System.out.println("Sorry, I don't recognize that response, try something else.");
                     userResponse = userInput.nextLine().toUpperCase();
                 }
