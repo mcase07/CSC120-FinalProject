@@ -73,12 +73,16 @@ public class Main {
                         player.position = "Nail Salon";
                         System.out.println("Welcome to the " + player.position);
                         nailSalon.showOptions();
+                        //userResponse = "Nail Salon";
+                        //nailSalon();
                         break;
                     
                 // }
+                
                 case "Nail Salon":
                 userResponse = userInput.nextLine().toUpperCase();
                 while (!userResponse.equals("MANICURE") || !userResponse.equals("PEDICURE") || !userResponse.equals("BOTH") || !userResponse.equals("EXIT")){
+                   System.out.println(userResponse);
                     System.out.println("Sorry, I don't recognize that response, try something else.");
                     userResponse = userInput.nextLine().toUpperCase();
                 }
