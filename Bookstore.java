@@ -7,7 +7,7 @@ public class Bookstore extends Building {
   ArrayList<String> menu = new ArrayList<String>();
   public ArrayList<String> books = new ArrayList<String>(); //change to be called inventory
   public Boolean seat = false;
-  public Hashtable<String, Boolean> bag;
+  public Hashtable<String, Boolean> bag = new Hashtable<String, Boolean>();
 
   //same thing as in cafe - quick fix!
   //now the scanner will be able to read things bc they need to be in caps
@@ -62,51 +62,39 @@ public class Bookstore extends Building {
     this.books.remove(name);
   }
 
-  public void chooseBook(String name){
+  public void chooseBook(Player player, String name){
     if(this.titles.contains(name)){ // checking if this is in book collection
       this.titles.remove(name); //removes the book from collection
-      System.out.println(name + "is availiable to look at"); //prints book
+      System.out.println(name + " is availiable to look at"); //prints book
     }
     // if the 'book' isn't in the collection, prints the string below
     else{
-      System.out.println(name + "is not available to read at the moment"); //prints book + ____ 
+      System.out.println(name + " is not available to read at the moment"); //prints book + ____ 
     }
 
     this.bag.put(name, false);
 
     Scanner input = new Scanner(System.in);
-    System.out.println("Would you like to purchase book in your bag?");
-    input.nextLine();
-    if (input.equals ("y")){
+    String response = "";
+
+    System.out.println("\nWould you like to purchase book in your bag? Enter Y for yes, N for no.");
+    response = input.nextLine().toUpperCase();
+
+    if (response.equals("Y")){
       this.buy(name);
       this.bag.replace(name, true);
-
+      System.out.println("\nEnjoy reading " + name);
+      input.close();
+    }else if (response.equals("N")){
+      this.returnBook(player, name);
+      System.out.println("\nYou've returned " + name);
+      input.close();
     }
-
-
-
-
-
-
-
-
-
-    //player needs to be able to purchase book in order for the value to turn true
-
-
-//     if(this.bag.contains(name) == false){
-//       return name;
-//       this.books.remove(name);
-//       System.out.println("You have not paid for this book, it is not in your bag.");}
-
-//     if(this.bag.contains(name) == true){
-// // turn false to true?
-//       this.name.add(bag);
-//       System.out.println("This book had been paid for and is now if your bag");
+    
     }
 
   public void returnBook(Player player, String name){
-    if(player.bag.contains(name) == true){
+    if(this.bag.contains(name) == true){
       this.titles.add(name);
     }
     else {
@@ -138,7 +126,11 @@ public void getUp(Player player){
 }
 public static void main(String[] args) {
   Bookstore bookStore = new Bookstore("Book Store");
+  Player player = new Player("me");
+
    bookStore.showOptions();
+
+   bookStore.returnBook(player, "KINDRED");
  }
 
 }
