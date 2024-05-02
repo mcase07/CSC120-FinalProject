@@ -226,10 +226,6 @@ public class Main {
                                 System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
                                 // System.out.println("Would you like more services at The Nail Salon? Enter 1 to stay here, 2 to exit.");
                                 break;
-
-                                // userResponse
-                                
-                                //prompt user for 1 to quit, 2 to continue - need depends on the loops we have
                             }
                         case "PEDICURE":
                         if (player.toesDone == false){

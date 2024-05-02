@@ -85,6 +85,7 @@ public class Bookstore extends Building {
       this.bag.replace(name, true);
       System.out.println("\nEnjoy reading " + name);
       input.close();
+      
     }else if (response.equals("N")){
       this.returnBook(player, name);
       System.out.println("\nYou've returned " + name);
