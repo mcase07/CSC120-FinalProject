@@ -1,20 +1,18 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Scanner;
 
 public class Bookstore extends Building {
 
   ArrayList<String> menu = new ArrayList<String>();
-  public ArrayList<String> books = new ArrayList<String>(); //change to be called inventory
+  public ArrayList<String> books = new ArrayList<String>(); // change to be called inventory
   public Boolean seat = false;
-  public Hashtable<String, Boolean> bag = new Hashtable<String, Boolean>();
+  public Hashtable<String, Boolean> bag = new Hashtable<String, Boolean>(); // i really think this should go in player
 
-  //same thing as in cafe - quick fix!
-  //now the scanner will be able to read things bc they need to be in caps
+  // same thing as in cafe - quick fix!
+  // now the scanner will be able to read things bc they need to be in caps
   public ArrayList<String> titles = new ArrayList<String>();
 
-
-  public Bookstore (String name){ 
+  public Bookstore(String name) {
     super(name);
 
     books.add("Parable of the Sower by Octavia Butler");
@@ -49,7 +47,6 @@ public class Bookstore extends Building {
     titles.add("BLACK ECONOMICS");
     titles.add("EDUCATING BLACK GIRLS");
   }
-  
 
   @Override
   public void showOptions() {
@@ -58,82 +55,78 @@ public class Bookstore extends Building {
     System.out.println(" + Choose a Book\n + Return a Book\n + Sit Down\n + Get Up\n");
   }
 
-  public void buy(String name){
+  public void buy(String name) {
     this.books.remove(name);
   }
 
-  public void chooseBook(Player player, String name){
-    if(this.titles.contains(name)){ // checking if this is in book collection
-      this.titles.remove(name); //removes the book from collection
-      System.out.println(name + " is availiable to look at"); //prints book
-    }
-    // if the 'book' isn't in the collection, prints the string below
-    else{
-      System.out.println(name + " is not available to read at the moment"); //prints book + ____ 
-    }
+  public String chooseBook(Player player, String name) {
 
-    this.bag.put(name, false);
+    if (this.titles.contains(name)) { // checking if this is in book collection
 
-    Scanner input = new Scanner(System.in);
-    String response = "";
+      //matches up the title to the book name w author
+      int i = this.titles.indexOf(name);
+      this.titles.remove(name); // removes the book from collection -- will also need to manipulate menu...or not...
+      this.bag.put(name, false); // put the book in the bag, saying it hasn't been purchased
+      String title = books.get(i);
+      System.out.println("\n" + title + " is availiable to look at");
 
-    System.out.println("\nWould you like to purchase book in your bag? Enter Y for yes, N for no.");
-    response = input.nextLine().toUpperCase();
+      return title;
 
-    if (response.equals("Y")){
-      this.buy(name);
-      this.bag.replace(name, true);
-      System.out.println("\nEnjoy reading " + name);
-      input.close();
-      
-    }else if (response.equals("N")){
-      this.returnBook(player, name);
-      System.out.println("\nYou've returned " + name);
-      input.close();
-    }
-    
-    }
+    } else { // if the 'book' isn't in the collection, prints the string below
+      int i = this.titles.indexOf(name);
+      String title = books.get(i);
+      System.out.println("\n" + title + " is not available to read at the moment");
 
-  public void returnBook(Player player, String name){
-    if(this.bag.contains(name) == true){
-      this.titles.add(name);
-    }
-    else {
-    System.out.println("You don't have a book to return.");
+      return title;
     }
   }
 
-public void sit(Player player){
-  if(player.isSitting == true){
-    System.out.println("You are already sitting down.");}
-    else {
-      if(player.isSitting == false){
+  public void returnBook(Player player, String name) {
+    if (this.bag.contains(name) == true) {
+
+      int i = this.titles.indexOf(name);
+      String title = books.get(i);
+
+      this.bag.remove(name);
+      this.titles.add(name);
+
+      System.out.println("\nYou have successfully returned " + title);
+    } else {
+      System.out.println("\nYou don't have that book to return.");
+    }
+  }
+
+  public void sit(Player player) {
+    if (player.isSitting == true) {
+
+      System.out.println("\nYou are already sitting down.");
+
+    } else if (player.isSitting == false) {
         player.isSitting = true;
-        System.out.println("You are now sitting down.");
+        System.out.println("\nYou are now sitting down.");
       }
     }
+  
+
+  public void getUp(Player player) {
+    if (player.isSitting == false) {
+
+      System.out.println("\nYou are already standing.");
+
+    } else if (player.isSitting == true) {
+        player.isSitting = false;
+        System.out.println("\nYou are now standing up.");
+      }
     }
   
-public void getUp(Player player){
-  if(player.isSitting == false){
-    System.out.println("You are already standing.");
+
+  public static void main(String[] args) {
+    Bookstore bookStore = new Bookstore("Book Store");
+    Player player = new Player("me");
+
+    bookStore.showOptions();
+
+    bookStore.chooseBook(player, "KINDRED");
   }
-  else{
-    if(player.isSitting == true){
-      player.isSitting = false;
-      System.out.println("You are now standing up.");
-  }
-}
-}
-public static void main(String[] args) {
-  Bookstore bookStore = new Bookstore("Book Store");
-  Player player = new Player("me");
-
-   bookStore.showOptions();
-
-   bookStore.returnBook(player, "KINDRED");
- }
 
 }
-
-  
