@@ -8,7 +8,7 @@ public class HairSalon extends Building {
     public void showOptions() {
         // TODO Auto-generated method stub
         super.showOptions();
-        System.out.println("\n + Wash\n + Dry\n + Style\n + Cut\n");
+        System.out.println(" + Wash\n + Dry\n + Style\n + Cut\n");
     }
 
     // wash hair and change player's attribute 
@@ -18,6 +18,7 @@ public class HairSalon extends Building {
             System.out.println("Your hair is already washed! Try a different service.");
         }else{
             player.hairWashed = true;
+            System.out.println("Nice and clean! What's next?");
         }
     }
 
@@ -78,11 +79,11 @@ public class HairSalon extends Building {
     //     // me.hairWashed = true;
     //     // hairSalon.style(me);
     //     System.out.println(me.nHairCuts);
-    //     hairSalon.cut(me);
-    //     hairSalon.cut(me);
-    //     hairSalon.cut(me);
-    //     System.out.println(me.nHairCuts);
-    //     hairSalon.cut(me);
+    //     hairSalon.wash(me);
+    //     // hairSalon.cut(me);
+    //     // hairSalon.cut(me);
+    //     // System.out.println(me.nHairCuts);
+    //     // hairSalon.cut(me);
     //     // hairSalon.wash(Player1);
     //     // System.out.println(Player1.hairWashed);
     //     // hairSalon.wash(Player1);

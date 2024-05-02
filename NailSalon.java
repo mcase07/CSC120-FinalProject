@@ -60,19 +60,21 @@ public class NailSalon extends Building {
     public void both(Player player){ 
 
         manicure (player);
+        player.setNailsDone(true);
         pedicure(player); 
+        player.setToesDone(true);
     }
 
-    // public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    //     Player mack = new Player("Mack");
-    //     NailSalon nails = new NailSalon("Nail Salon");
-    //     System.out.println(mack.nailsDone);
-    //     // nails.manicure(mack);
-    //     // nails.pedicure(mack);
-    //     // nails.both(mack);
-    //     // nails.manicure(mack);
-    //     // nails.pedicure(mack);
+        Player mack = new Player("Mack");
+        NailSalon nails = new NailSalon("Nail Salon");
+        nails.both(mack);
+        // nails.manicure(mack);
+        // nails.pedicure(mack);
+        // nails.both(mack);
+        // nails.manicure(mack);
+        // nails.pedicure(mack);
         
-    // }
+    }
 }
