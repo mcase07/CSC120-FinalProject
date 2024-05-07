@@ -50,15 +50,18 @@ public class Main {
 
             userResponse = userInput.nextLine().toUpperCase();
             
+            // if the user says end, the game ends
             if (userResponse.equals("END")) {
                 stillPlaying = false;
             } 
 
+            // only valid responses are east, west, north, south, and end
             while (!userResponse.equals("EAST") && !userResponse.equals("WEST") && !userResponse.equals("NORTH") && !userResponse.equals("SOUTH") && !userResponse.equals("END")){
                 System.out.println("Sorry, I don't recognize that response, try something else.");
                 userResponse = userInput.nextLine().toUpperCase();
             }
-            // this switch case is based on direction
+
+            // this switch case is based on inputted direction
             switch(userResponse){
                 case "EAST":
                     player.position = "Cafe";
@@ -76,9 +79,9 @@ public class Main {
                     break;
             }
             
+            // this switch case is based on position 
             switch(player.position){
-
-                //if the boookstore is called
+                //if the postion is the bookstore
                 case "Book Store":
                     System.out.println("\nWelcome to the " + player.position);
                     bookStore.showOptions();
@@ -90,7 +93,9 @@ public class Main {
                         System.out.println("Sorry, I don't recognize that response, try something else.");
                         userResponse = userInput.nextLine().toUpperCase();
                     }
+                    // this switch case is based on what the user says they want to do in the book store
                     switch(userResponse){
+                        // if the user says they want to choose a book
                         case "CHOOSE A BOOK":
                             //need to figure out a prettier souting situation!
                             System.out.println("\nChoose a book from our selection. We have: " + bookStore.books);
@@ -100,6 +105,7 @@ public class Main {
 
                             System.out.println("\nWould you like to purchase the book in your bag? Enter Y for yes, N for no.");
 
+                            //asks if the user wants to buy the book
                             userResponse = userInput.nextLine().toUpperCase();
                             if (userResponse.equals("Y")){
                                 bookStore.buy(book);
@@ -111,81 +117,95 @@ public class Main {
                                 System.out.println("\nYou've returned " + title);
                             }
                             break;
+                        // if the user says they want to return a book
                         case "RETURN A BOOK":
                             System.out.println("\nWhat book would you like to return?");
                             String t = userInput.nextLine().toUpperCase();
                             bookStore.returnBook(player, t);
                             break;
+                        // if the user says they want to sit down
                         case "SIT DOWN":
                             bookStore.sit(player);
                             break;
+                        // if the user says they want to get up
                         case "GET UP":
                             bookStore.sit(player);
                             break;
+                        // if the user says they want to exit
                         case "EXIT":
                             break;
                     }
-                    
+                    // book store's break
                     break;
 
-                //if the cafe is called
+                // if the postion is the cafe
                 case "Cafe":
                     System.out.println("\nWelcome to the " + player.position);
                     cafe.showOptions();
 
                     userResponse = userInput.nextLine().toUpperCase();
 
-                    //limits what the player can call to just the things cafe can perform
+                    // limits what the player can call to just the things cafe can perform
                     while (!userResponse.equals("BUY SOMETHING") && !userResponse.equals("SIT DOWN") && !userResponse.equals("GET UP") && !userResponse.equals("EXIT")){
                         System.out.println("Sorry, I don't recognize that response, try something else.");
                         userResponse = userInput.nextLine().toUpperCase();
                     }
+                    // this switch case is based on what the user says they want to do in the cafe
                     switch(userResponse){
+                        // if the user says they want to buy something from the menu
                         case "BUY SOMETHING":   
                             System.out.println("\nChoose an item from our menu. We have: " + cafe.menu);
                             String item = userInput.nextLine().toUpperCase();
                             //need to figure out how to make sure the thing we're selling them isn't yelling
                             cafe.sellItem(item);
                             break;
+                        // if the user says they want to sit down
                         case "SIT DOWN":
                             cafe.sit(player);
                             break;
+                        // if the user says they want to get up
                         case "GET UP":
                             cafe.sit(player);
                             break;
+                        // if the user says they want to exit
                         case "EXIT":
                             break;
 
                     }
-
+                    // cafe's break
                     break;
-                //if the hair salon is called
+                // if the position is hair salon
                 case "Hair Salon":
 
                     System.out.println("\nWelcome to the " + player.position);
                     hairSalon.showOptions();
 
                     userResponse = userInput.nextLine().toUpperCase();
-                    // System.out.println(userResponse);
 
-                    //limits what the player can call to just the things hair salon can perform
+                    // limits what the player can call to just the things hair salon can perform
                     while (!userResponse.equals("WASH") && !userResponse.equals("DRY") && !userResponse.equals("STYLE") && !userResponse.equals("CUT") && !userResponse.equals("EXIT")){
                         System.out.println("Sorry, I don't recognize that response, try something else.");
                         userResponse = userInput.nextLine().toUpperCase();
                     }
+                    // this switch case is based on what the user says they want to do in the hair salon
                     switch(userResponse){
+                        // if the user says they want a wash
                         case "WASH":
                             hairSalon.wash(player);
                             break;
+                        // if the user says they want a dry
                         case "DRY":
                             hairSalon.dry(player);
                             break;
+                        // if the user says they want a style
                         case "STYLE":
                             hairSalon.style(player);
                             break;
+                        // if the user says they want a cut 
                         case "CUT":
                             hairSalon.cut(player);
                             break;
+                        // if the user says they want to exit
                         case "EXIT":
                             break;
                     }
@@ -197,14 +217,17 @@ public class Main {
 
                     System.out.println("\nWelcome to the " + player.position);
                     nailSalon.showOptions();
+
                     userResponse = userInput.nextLine().toUpperCase(); 
 
-                    //limits what the player can call to just the things nail salon can perform
+                    // limits what the player can call to just the things nail salon can perform
                     while (!userResponse.equals("MANICURE") && !userResponse.equals("PEDICURE") && !userResponse.equals("BOTH") && !userResponse.equals("EXIT")){
                         System.out.println("Sorry, I don't recognize that response, try something else.");
                         userResponse = userInput.nextLine().toUpperCase();
                     }
+                    // this switch case is based on what the user says they want to do in the nail salon
                     switch(userResponse){
+                        // if the user says they want a manicure
                         case "MANICURE":
                             if (player.nailsDone == true){
                                 System.out.println("Looks like you already have a manicure. Try one of our other services or a different shop!\n");
@@ -227,6 +250,7 @@ public class Main {
                                 // System.out.println("Would you like more services at The Nail Salon? Enter 1 to stay here, 2 to exit.");
                                 break;
                             }
+                        // if the user says they want a pedicure
                         case "PEDICURE":
                         if (player.toesDone == false){
                             System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
@@ -239,7 +263,7 @@ public class Main {
                             System.out.println("Looks like you already have a pedicure. Try one of our other services or a difference shop!\n");
                             break;
                         }
-                        //both doesn't really work for some reason...idk 
+                        // if the user says they want both a manicure and a pedicure
                         case "BOTH":
                         if (player.nailsDone == false && player.toesDone == false){
 
@@ -258,7 +282,6 @@ public class Main {
 
                             nailSalon.manicure(player);
                             System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
-                            // System.out.println("Would you like more services at The Nail Salon? Enter 1 to stay here, 2 to exit.");
                             
                             //pedicure tings
                             System.out.println("\nChoose a color for your toes from our options. We have: " + nailSalon.colors);
@@ -282,6 +305,7 @@ public class Main {
                 
                             System.out.println("Looks like you already have your nails and toes painted. How about trying a different shop?");
                         }
+                        // if the user says they want to exit
                         case "EXIT":
                             break;
                     }
@@ -295,6 +319,5 @@ public class Main {
         userInput.close();
         System.out.println("\nThanks for visiting Wellness World, " + player.name + "! Come back soon!");
         //check to see if game should end
-        //does this just need to be sprinkled throughout??
     }
 }
