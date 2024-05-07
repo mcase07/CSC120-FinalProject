@@ -1,9 +1,16 @@
 public class HairSalon extends Building {
 
+    /**
+     * HairSalon constructor that sets a name and inherets from Building class
+     * @param name name of the hair salon
+     */
     public HairSalon(String name){
         super(name);
     }
 
+    /**
+     * Overriding the showoptions method inhereted from building class
+     */
     @Override
     public void showOptions() {
         // TODO Auto-generated method stub
@@ -11,8 +18,11 @@ public class HairSalon extends Building {
         System.out.println(" + Wash\n + Dry\n + Style\n + Cut\n");
     }
 
-    // wash hair and change player's attribute 
-    // check first if hair's already washed
+    /**
+     * Washes a player's hair and changes their attribute
+     * Checks to see if the player's hair is washed first
+     * @param player player whose hair is getting washed
+     */
     public void wash(Player player){
         if(player.hairWashed == true){
             System.out.println("Your hair is already washed! Try a different service.");
@@ -22,8 +32,11 @@ public class HairSalon extends Building {
         }
     }
 
-    // dry hair and change player's attribute 
-    // check first if hair's already dried
+    /**
+     * Dries a player's hair and changes their attribute
+     * Checks to see if the player's hair is dry first
+     * @param player player whose hair is getting dried
+     */
     public void dry(Player player){
         if(player.hairDry == true){
             System.out.println("Your hair is already dry! Try a different service.");
@@ -33,8 +46,11 @@ public class HairSalon extends Building {
         }
     }
 
-    // style hair and change player's styled and dry attributes
-    // check first if hair's already washed
+    /**
+     * Styles a player's hair and changes their attribute
+     * Checks to see if the player's hair is washed first
+     * @param player player whose hair is getting styled
+     */
     public void style(Player player){
 
         if(player.hairWashed == true){
@@ -55,8 +71,11 @@ public class HairSalon extends Building {
         }
     }
 
-    // cut hair and change player's attribute 
-    // check first if hair's already cut less than 3 times
+    /**
+     * Cuts a player's hair and adds to their hair cut attribute
+     * Checks to see if the player's hair is cut first & stops them after 3 times
+     * @param player player whose hair is getting styled
+     */
     public void cut(Player player){
 
         if (player.nHairCuts < 3) {
@@ -67,26 +86,4 @@ public class HairSalon extends Building {
             // could e.g. issue a refund in the future
         }
     }
-
-    // public static void main(String[] args) {
-
-    //     HairSalon hairSalon = new HairSalon("Hair Salon");
-
-    //     // System.out.println(hairSalon.menu);
-
-    //     Player me = new Player("mack");
-    //     // System.out.println(me.hairWashed);
-    //     // me.hairWashed = true;
-    //     // hairSalon.style(me);
-    //     System.out.println(me.nHairCuts);
-    //     hairSalon.wash(me);
-    //     // hairSalon.cut(me);
-    //     // hairSalon.cut(me);
-    //     // System.out.println(me.nHairCuts);
-    //     // hairSalon.cut(me);
-    //     // hairSalon.wash(Player1);
-    //     // System.out.println(Player1.hairWashed);
-    //     // hairSalon.wash(Player1);
-
-    // }
 }

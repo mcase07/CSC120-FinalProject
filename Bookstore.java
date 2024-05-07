@@ -12,6 +12,10 @@ public class Bookstore extends Building {
   // now the scanner will be able to read things bc they need to be in caps
   public ArrayList<String> titles = new ArrayList<String>();
 
+  /**
+   * Bookstore constructor that sets a name and inherets from Building class
+   * @param name name of the book store
+   */
   public Bookstore(String name) {
     super(name);
 
@@ -48,6 +52,9 @@ public class Bookstore extends Building {
     titles.add("EDUCATING BLACK GIRLS");
   }
 
+  /**
+   * Overriding the showoptions method inhereted from building class
+   */
   @Override
   public void showOptions() {
     // TODO Auto-generated method stub
@@ -55,12 +62,22 @@ public class Bookstore extends Building {
     System.out.println(" + Choose a Book\n + Return a Book\n + Sit Down\n + Get Up\n");
   }
 
+  /**
+   * Removes a given book from the books array list
+   * @param name name of the book that's being bought
+   */
+  //do we need this?? it might be accounted for somewhere else
   public void buy(String name) {
     this.books.remove(name);
   }
 
+  /**
+   * Lets a player select a book before buying it
+   * @param player player who's selecting the book
+   * @param name name of the book 
+   * @return returns the title of the book as a string
+   */
   public String chooseBook(Player player, String name) {
-
     if (this.titles.contains(name)) { // checking if this is in book collection
 
       //matches up the title to the book name w author
@@ -81,6 +98,11 @@ public class Bookstore extends Building {
     }
   }
 
+  /**
+   * Lets a player return a book 
+   * @param player player who's returning a book
+   * @param name name of the book the player is returning
+   */
   public void returnBook(Player player, String name) {
     if (this.bag.contains(name) == true) {
 
@@ -96,6 +118,11 @@ public class Bookstore extends Building {
     }
   }
 
+  /**
+   * Allows a player to sit down & changes their attribute
+   * Checks to see if they're already sitting
+   * @param player Player that's sitting
+   */
   public void sit(Player player) {
     if (player.isSitting == true) {
 
@@ -104,10 +131,14 @@ public class Bookstore extends Building {
     } else if (player.isSitting == false) {
         player.isSitting = true;
         System.out.println("\nYou are now sitting down.");
-      }
     }
+  }
   
-
+  /**
+   * Allows a player to get up & changes their attribute
+   * Checks to see if they're already standing
+   * @param player Player that's standing
+   */
   public void getUp(Player player) {
     if (player.isSitting == false) {
 
@@ -116,17 +147,6 @@ public class Bookstore extends Building {
     } else if (player.isSitting == true) {
         player.isSitting = false;
         System.out.println("\nYou are now standing up.");
-      }
     }
-  
-
-  public static void main(String[] args) {
-    Bookstore bookStore = new Bookstore("Book Store");
-    Player player = new Player("me");
-
-    bookStore.showOptions();
-
-    bookStore.chooseBook(player, "KINDRED");
   }
-
 }

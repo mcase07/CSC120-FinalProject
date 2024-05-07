@@ -6,6 +6,10 @@ public class NailSalon extends Building {
     ArrayList<String> lengths =  new ArrayList<String>();
     ArrayList<String> shapes =  new ArrayList<String>();
 
+    /**
+     * NailSalon constructor that sets a name and inherets from Building class
+     * @param name name of the nail salon
+     */
     public NailSalon(String name){
         
         super(name);
@@ -37,6 +41,9 @@ public class NailSalon extends Building {
         shapes.add("Oval");
     }
 
+    /**
+     * Overriding the showoptions method inhereted from building class
+     */
     @Override
     public void showOptions() {
         // TODO Auto-generated method stub
@@ -44,37 +51,33 @@ public class NailSalon extends Building {
         System.out.println(" + Manicure\n + Pedicure\n + Both\n");
     }
 
-    // choose color, legth, and style and change player's attribute
+    /**
+     * Gives a player a manicure and changes their attribute
+     * @param player player whose nails are getting done
+     */
     public void manicure(Player player){
         
         player.setNailsDone(true);
     }
 
-    // choose color and change player's attribute
+    /**
+     * Gives a player a pedicure and changes their attribute
+     * @param player player whose toes are getting done
+     */
     public void pedicure(Player player){
 
         player.setToesDone(true);
     }
 
-    // run both mani and pedi and change player's attribute
+    /**
+     * Gives a player a manicure and a pedicure and changes their attributes
+     * @param player player whose nails and toes are getting done
+     */
     public void both(Player player){ 
 
         manicure (player);
         player.setNailsDone(true);
         pedicure(player); 
         player.setToesDone(true);
-    }
-
-    public static void main(String[] args) {
-
-        Player mack = new Player("Mack");
-        NailSalon nails = new NailSalon("Nail Salon");
-        nails.both(mack);
-        // nails.manicure(mack);
-        // nails.pedicure(mack);
-        // nails.both(mack);
-        // nails.manicure(mack);
-        // nails.pedicure(mack);
-        
     }
 }

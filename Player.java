@@ -15,6 +15,10 @@ public class Player {
     public Boolean isSitting;
     public Hashtable<String, Boolean> bag;
 
+    /**
+     * Player constructor that sets name, attributes, postition, and balance
+     * @param name Name of the player
+     */
     public Player(String name){
 
         this.name = name;
@@ -27,37 +31,21 @@ public class Player {
         this.toesDone = false;
         this.balance = 100;
         this.isSitting = false;
-
-        // System.out.println("Hello, " + this.name + "! Currently, you are at " + position + ".");
     }
 
-    public void move(String direction){
-        if (direction == "NORTH"){
-            this.position = "Hair Salon";
-        } else if (direction == "SOUTH"){
-            this.position = "Nail Salon";
-        }else if (direction == "EAST"){
-            this.position = "Book Store";
-        }else if (direction == "WEST"){
-            this.position = "Cafe";
-        }
-    }
-
-
-
-
+    /**
+     * Setter that changes nailsDone attribute to true
+     * @param nailsDone Boolean if nails are done or not
+     */
     public void setNailsDone(Boolean nailsDone) {
         this.nailsDone = nailsDone;
     }
 
+    /**
+     * Setter that changes toesDone attribute to true
+     * @param toesDone Boolean if toes are done or not
+     */
     public void setToesDone(Boolean toesDone) {
         this.toesDone = toesDone;
-    }
-    public static void main(String[] args) {
-        Player Player1 = new Player("Jo");
-
-        // will do userResponse = userInput.nextLine.toUpperCase();
-        // System.out.println(Player1.move("EAST"));
-        System.out.println(Player1.position);
     }
 }

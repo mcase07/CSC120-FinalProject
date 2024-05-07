@@ -3,10 +3,15 @@ import java.util.ArrayList;
 
 public class Cafe  extends Building{
   public Boolean seat = false;
+  //what is this seats doing? i think delete
   private Hashtable<String, Boolean> seats; 
   public Hashtable <String, Integer > inventory = new Hashtable<String, Integer>(); 
   public ArrayList<String> menu = new ArrayList<String>();
 
+  /**
+   * Cafe constructor that sets a name and inherets from Building class
+   * @param name name of the cafe
+   */
   public Cafe(String name){
     super(name);
 
@@ -30,6 +35,9 @@ public class Cafe  extends Building{
     this.menu.add("Brownie");
   }
 
+  /**
+   * Overriding the showoptions method inhereted from building class
+   */
   @Override
   public void showOptions() {
     // TODO Auto-generated method stub
@@ -37,6 +45,11 @@ public class Cafe  extends Building{
     System.out.println(" + Buy Something\n + Sit Down\n + Get Up\n");
   }
 
+  /**
+   * Sells an item from the inventory and subtracts 1 from the number there are
+   * If the inventory is low, calls the restock method
+   * @param item Item that the person wants to buy
+   */
   public void sellItem(String item){
     int n = this.inventory.get(item);
     if (n < 1){
@@ -51,6 +64,10 @@ public class Cafe  extends Building{
     }
   }
 
+  /**
+   * Restocks an item passed in 
+   * @param item Item that is being restocked 
+   */
   private void restock(String item){
     int n = this.inventory.get(item);
     if (n < 1){
@@ -58,6 +75,11 @@ public class Cafe  extends Building{
     }
   }
 
+  /**
+   * Allows a player to sit down & changes their attribute
+   * Checks to see if they're already sitting
+   * @param player Player that's sitting
+   */
   public void sit(Player player){
     if(player.isSitting == true){
       System.out.println("\nYou are already sitting down.");
@@ -67,6 +89,11 @@ public class Cafe  extends Building{
     }
   }
 
+  /**
+   * Allows a player to get up & changes their attribute
+   * Checks to see if they're already standing
+   * @param player Player that's standing
+   */
   public void getUp(Player player){
     if(player.isSitting == false){
       System.out.println("\nYou are already standing.");
@@ -74,11 +101,6 @@ public class Cafe  extends Building{
     else if(player.isSitting == true){
         player.isSitting = false;
         System.out.println("\nYou are now standing up.");}
-  }
-
-  public static void main(String[] args) {
-    Cafe cafe = new Cafe("Cafe");
-    System.out.println(cafe.inventory.keySet());
   }
 }
 
