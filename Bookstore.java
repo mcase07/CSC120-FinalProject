@@ -73,6 +73,7 @@ public class Bookstore extends Building {
 
   /**
    * Lets a player select a book before buying it
+   * The book gets put in the player's bag with a boolean indicated whether or not it's been purchased
    * @param player player who's selecting the book
    * @param name name of the book 
    * @return returns the title of the book as a string
