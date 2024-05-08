@@ -1,12 +1,10 @@
 import java.util.ArrayList;
-import java.util.Hashtable;
 
 public class Bookstore extends Building {
 
   ArrayList<String> menu = new ArrayList<String>();
   public ArrayList<String> books = new ArrayList<String>(); // change to be called inventory
   public Boolean seat = false;
-  public Hashtable<String, Boolean> bag = new Hashtable<String, Boolean>(); // i really think this should go in player
 
   // same thing as in cafe - quick fix!
   // now the scanner will be able to read things bc they need to be in caps
@@ -84,7 +82,7 @@ public class Bookstore extends Building {
       //matches up the title to the book name w author
       int i = this.titles.indexOf(name);
       this.titles.remove(name); // removes the book from collection -- will also need to manipulate menu...or not...
-      this.bag.put(name, false); // put the book in the bag, saying it hasn't been purchased
+      player.bag.put(name, false); // put the book in the bag, saying it hasn't been purchased
       String title = books.get(i);
       System.out.println("\n" + title + " is availiable to look at");
 
@@ -105,12 +103,12 @@ public class Bookstore extends Building {
    * @param name name of the book the player is returning
    */
   public void returnBook(Player player, String name) {
-    if (this.bag.contains(name) == true) {
+    if (player.bag.contains(name) == true) {
 
       int i = this.titles.indexOf(name);
       String title = books.get(i);
 
-      this.bag.remove(name);
+      player.bag.remove(name);
       this.titles.add(name);
 
       System.out.println("\nYou have successfully returned " + title);

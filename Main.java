@@ -108,7 +108,7 @@ public class Main {
                             userResponse = userInput.nextLine().toUpperCase();
                             if (userResponse.equals("Y")){
                                 bookStore.buy(book);
-                                bookStore.bag.replace(book, true);
+                                player.bag.replace(book, true);
                                 System.out.println("\nEnjoy reading " + title);
 
                             }else if (userResponse.equals("N")){
