@@ -12,7 +12,7 @@ public class Player {
     public Boolean nailsDone;
     public Boolean toesDone;
     public Boolean isSitting;
-    public Hashtable<String, Boolean> bag;
+    public Hashtable<String, Boolean> bag = new Hashtable<String, Boolean>();
 
     /**
      * Player constructor that sets name, attributes, postition, and balance

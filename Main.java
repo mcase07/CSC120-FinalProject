@@ -267,7 +267,7 @@ public class Main {
                         if (player.nailsDone == false && player.toesDone == false){
 
                             //manicure tings
-                            System.out.println("\nChoose a color for your nails cleafrom our options. We have: " + nailSalon.colors);
+                            System.out.println("\nChoose a color for your nails from our options. We have: " + nailSalon.colors);
                             String color = userInput.nextLine();
                             System.out.println("OMG, " + color + " is my favorite color!\n");
                             
