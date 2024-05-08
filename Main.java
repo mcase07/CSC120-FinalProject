@@ -97,8 +97,13 @@ public class Main {
                         // if the user says they want to choose a book
                         case "CHOOSE A BOOK":
                             //need to figure out a prettier souting situation!
-                            System.out.println("\nChoose a book from our selection. We have: " + bookStore.books);
-                            System.out.println("\nEnter a title to select a book");
+                            System.out.println("\nChoose a book from our selection. We have: \n");
+                            for (int i = 0; i < bookStore.books.size(); i++) {
+                                String curr = bookStore.books.get(i);
+                              
+                                System.out.println("+ " + curr);
+                              }
+                            System.out.println("\nEnter a title to select a book.");
                             String book = userInput.nextLine().toUpperCase();
                             String title = bookStore.chooseBook(player, book);
 
@@ -153,7 +158,14 @@ public class Main {
                     switch(userResponse){
                         // if the user says they want to buy something from the menu
                         case "BUY SOMETHING":   
-                            System.out.println("\nChoose an item from our menu. We have: " + cafe.menu);
+                            System.out.println("\nChoose an item from our menu. We have: \n");
+                            for (int i = 0; i < cafe.menu.size(); i++) {
+                                String curr = cafe.menu.get(i);
+                              
+                                System.out.println("+ " + curr);
+                              }
+
+                            System.out.println("\nEnter an item to order.");
                             String item = userInput.nextLine().toUpperCase();
                             //need to figure out how to make sure the thing we're selling them isn't yelling
                             cafe.sellItem(item);
@@ -232,31 +244,68 @@ public class Main {
                                 System.out.println("Looks like you already have a manicure. Try one of our other services or a different shop!\n");
                                 break;
                             }else{
-                                System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
+                                System.out.println("\nChoose a color from our options. We have: \n");
+
+                                // for loop that pretty prints
+                                for (int i = 0; i < nailSalon.colors.size(); i++) {
+                                    String curr = nailSalon.colors.get(i);
+                                  
+                                    System.out.println("+ " + curr);
+                                }
+                                
+                                System.out.println("\nEnter a color to select.");
                                 String color = userInput.nextLine();
                                 System.out.println("OMG, " + color + " is my favorite color!\n");
                                 
-                                System.out.println("Choose a length from our options. We have: " + nailSalon.lengths);
+                                System.out.println("Choose a length from our options. We have: \n");
+
+                                // for loop that pretty prints
+                                for (int i = 0; i < nailSalon.lengths.size(); i++) {
+                                    String curr = nailSalon.lengths.get(i);
+                                  
+                                    System.out.println("+ " + curr);
+                                }
+
+                                System.out.println("\nEnter a length to select.");
                                 String length = userInput.nextLine();
                                 System.out.println("\nAh, " + length + " is a great choice!\n");
 
-                                System.out.println("Now, what shape would you like? You can choose from: " + nailSalon.shapes);
+                                System.out.println("Now, what shape would you like? You can choose from: \n");
+
+                                // for loop that pretty prints
+                                for (int i = 0; i < nailSalon.shapes.size(); i++) {
+                                    String curr = nailSalon.shapes.get(i);
+                                  
+                                    System.out.println("+ " + curr);
+                                }
+
+                                System.out.println("\nEnter a shape to select.");
                                 String shape = userInput.nextLine();
                                 System.out.println("\nOh I love " + shape + " on you!\n");
 
                                 nailSalon.manicure(player);
                                 System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
-                                // System.out.println("Would you like more services at The Nail Salon? Enter 1 to stay here, 2 to exit.");
+
                                 break;
                             }
                         // if the user says they want a pedicure
                         case "PEDICURE":
                         if (player.toesDone == false){
-                            System.out.println("\nChoose a color from our options. We have: " + nailSalon.colors);
+                            System.out.println("\nChoose a color from our options. We have: \n");
+
+                            // for loop that pretty prints
+                            for (int i = 0; i < nailSalon.colors.size(); i++) {
+                                String curr = nailSalon.colors.get(i);
+                              
+                                System.out.println("+ " + curr);
+                            }
+
+                            System.out.println("\nEnter a color to select.");
                             String color = userInput.nextLine();
 
                             nailSalon.pedicure(player);
                             System.out.println("Looks like you have a lovely " + color + " pedicure! It turned out great!\n");
+                            
                             break;
                         }else{
                             System.out.println("Looks like you already have a pedicure. Try one of our other services or a difference shop!\n");
@@ -265,31 +314,65 @@ public class Main {
                         // if the user says they want both a manicure and a pedicure
                         case "BOTH":
                         if (player.nailsDone == false && player.toesDone == false){
-
                             //manicure tings
-                            System.out.println("\nChoose a color for your nails from our options. We have: " + nailSalon.colors);
+                            System.out.println("\nChoose a color from our options. We have: \n");
+
+                            // for loop that pretty prints
+                            for (int i = 0; i < nailSalon.colors.size(); i++) {
+                                String curr = nailSalon.colors.get(i);
+                                
+                                System.out.println("+ " + curr);
+                            }
+
+                            System.out.println("\nEnter a color to select.");
                             String color = userInput.nextLine();
                             System.out.println("OMG, " + color + " is my favorite color!\n");
                             
-                            System.out.println("Choose a length from our options. We have: " + nailSalon.lengths);
+                            System.out.println("Choose a length from our options. We have: \n");
+
+                            // for loop that pretty prints
+                            for (int i = 0; i < nailSalon.lengths.size(); i++) {
+                                String curr = nailSalon.lengths.get(i);
+                                
+                                System.out.println("+ " + curr);
+                            }
+
+                            System.out.println("\nEnter a length to select.");
                             String length = userInput.nextLine();
                             System.out.println("\nAh, " + length + " is a great choice!\n");
 
-                            System.out.println("Now, what shape would you like? You can choose from: " + nailSalon.shapes);
+                            System.out.println("Now, what shape would you like? You can choose from: \n");
+
+                            // for loop that pretty prints
+                            for (int i = 0; i < nailSalon.shapes.size(); i++) {
+                                String curr = nailSalon.shapes.get(i);
+                                
+                                System.out.println("+ " + curr);
+                            }
+
+                            System.out.println("\nEnter a shape to select.");
                             String shape = userInput.nextLine();
                             System.out.println("\nOh I love " + shape + " on you!\n");
 
                             nailSalon.manicure(player);
                             System.out.println("Looks like you have a beatiful set of " + length + ", " + shape + ", " + color + " nails! They look great!\n");
-                            
+
                             //pedicure tings
-                            System.out.println("\nChoose a color for your toes from our options. We have: " + nailSalon.colors);
+                            System.out.println("\nChoose a color from our options. We have: \n");
+
+                            // for loop that pretty prints
+                            for (int i = 0; i < nailSalon.colors.size(); i++) {
+                                String curr = nailSalon.colors.get(i);
+                              
+                                System.out.println("+ " + curr);
+                            }
+
+                            System.out.println("\nEnter a color to select.");
                             String color2 = userInput.nextLine();
 
                             nailSalon.pedicure(player);
                             System.out.println("Looks like you have a lovely " + color2 + " pedicure! It turned out great!\n");
-
-                            nailSalon.both(player);
+                            
                             break;
                             
                         }else if(player.nailsDone == false && player.toesDone == true){
